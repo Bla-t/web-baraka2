@@ -1,11 +1,11 @@
 <?php
-class home extends Controller
+class about extends Controller
 {
   public function index()
   {
-    $data['judul'] = 'bst MVC';
+    $data['judul'] = 'abot';
     $this->view('header', $data);
-    $this->view('index');
+    $this->view('about');
     $this->view('footer');
   }
 }

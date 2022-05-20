@@ -1,14 +1,17 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="shortcut icon" type="image/png" href="<?= BASEURL; ?>img/logdom.png" />
+  <link rel="shortcut icon" type="image/png" href="<?= BASEURL; ?>/img/logdom.png" />
   <title><?= $data['judul']; ?></title>
-  <link rel="stylesheet" href="<?= BASEURL; ?>css/bootstrap.min.css" />
+  <link rel="stylesheet" href="<?= BASEURL; ?>/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="<?= BASEURL; ?>/css/templatemo-style.css" />
+  <link href="<?= BASEURL; ?>/css/font-awesome.min.css" rel="stylesheet" />
   <style>
     .banner-image {
-      background-image: url('<?= BASEURL; ?>img/banner-img.jpg');
+      background-image: url('<?= BASEURL; ?>/img/banner-img.jpg');
       background-size: cover;
       /*filter: blur(8px);
       -webkit-filter: blur(8px);*/
@@ -33,22 +36,22 @@
         <div class="mx-auto"></div>
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link text-white" href="<?= BASEURL; ?>">Home</a>
+            <a class="nav-link text-white" href="<?= BASEURL; ?>/tracking">Tracking</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="#">About</a>
+            <a class="nav-link text-white" href="<?= BASEURL; ?>/about">Tentang Kami</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="#">Blog</a>
+            <a class="nav-link text-white" href="#">Cabang</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="#">Pricing</a>
+            <a class="nav-link text-white" href="#">News Center</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="#">Contact</a>
+            <a class="nav-link text-white" href="#">Karir</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="#">Contact</a>
+            <a class="nav-link text-white" href="#">Hubungi kami</a>
           </li>
         </ul>
       </div>
