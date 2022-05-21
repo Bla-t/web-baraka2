@@ -3,7 +3,7 @@ class pages extends Controller
 {
   public function index()
   {
-    $data['judul'] = 'bst MVC';
+    $data['judul'] = 'BST EXPRESS';
     $this->view('header', $data);
     $this->view('index');
     $this->view('footer');
@@ -17,7 +17,7 @@ class pages extends Controller
   }
   public function about()
   {
-    $data['judul'] = 'abot';
+    $data['judul'] = 'Tentang Kami';
     $this->view('header', $data);
     $this->view('about');
     $this->view('footer');

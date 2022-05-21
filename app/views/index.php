@@ -8,6 +8,12 @@
 <!-- Main Content Area -->
 <div class="container my-5 d-grid gap-5">
   <div class="p-5 border">
+    <div class="ratio ratio-1x1">
+      <iframe class="embed-responsive-item" src="https://barcode-bst.com/pindah/Tarif/extern.php"></iframe>
+      <!-- <div>1x1</div> -->
+    </div>
+  </div>
+  <div class="p-5 border">
     <p>
       Lorem ipsum dolor sit amet consectetur adipisicing elit.
       Necessitatibus veniam ipsa earum quibusdam, atque ipsum error maiores
