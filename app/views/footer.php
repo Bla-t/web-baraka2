@@ -11,7 +11,7 @@
           <br />
           - 0812 8289 8392
           <br />
-          <a class="foot-link" href="https://wa.me/+6281313724646">
+          <a class="foot-link" href="https://wa.me/+6281313724646" target="blank">
             <i class="fa fa-whatsapp">
               &nbsp;081313724646
             </i>
@@ -22,7 +22,7 @@
           <br />
           - 0812 8290 8302
           <br />
-          <a href="https://wa.me/+6281313724646" class="foot-link">
+          <a href="https://wa.me/+6281313724646" target="blank" class="foot-link">
             <i class="fa fa-whatsapp">
               081313724646
             </i>
@@ -33,7 +33,7 @@
           <br />
           - 0812 8044 3372
           <br />
-          <a href="https://wa.me/+6281282908302" class="foot-link">
+          <a href="https://wa.me/+6281282908302" target="blank" class="foot-link">
             <i class="fa fa-whatsapp">
               0812 8290 8302
             </i>

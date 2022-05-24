@@ -22,4 +22,18 @@ class pages extends Controller
     $this->view('about');
     $this->view('footer');
   }
+  public function cabang()
+  {
+    $data['judul'] = 'Cabang';
+    $this->view('header', $data);
+    $this->view('cabang');
+    $this->view('footer');
+  }
+  public function admin()
+  {
+    $data['judul'] = 'ini admin';
+    $this->view('header', $data);
+    $this->view('admin');
+    $this->view('footer');
+  }
 }

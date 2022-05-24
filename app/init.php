@@ -1,4 +1,6 @@
 <?php
-require_once 'core/linker.php';
 require_once 'core/App.php';
+require_once 'core/database.php';
 require 'core/Controller.php';
+
+require_once 'config/config.php';

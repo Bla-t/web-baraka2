@@ -42,13 +42,33 @@
             <a class="nav-link text-white" href="<?= BASEURL; ?>/about">Tentang Kami</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="#">Cabang</a>
+            <a class="nav-link text-white" href="<?= BASEURL; ?>/cabang">Cabang</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-white" href="#">News Center</a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link text-white" href="#">Karir</a>
+          </li> -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" style="text-decoration: none;" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Karir
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Lowongan DKI Jakarta</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Lowongan Jawa Barat</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Lowongan Jawa Tengah</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Lowongan Jawa Timur</a></li>
+            </ul>
           </li>
           <li class="nav-item">
             <a class="nav-link text-white" href="#">Hubungi kami</a>
