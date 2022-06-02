@@ -11,6 +11,12 @@
 .p-md-3{
 	padding: 0 !important;
 }
+.maps {
+	height: 475px;
+}
+.judulmap{
+	font-size: 2rem;
+}
 ul,p {
 	margin: 0; 
 	padding: 0;
@@ -26,7 +32,11 @@ a:focus {
 }
 
 /* Header & Nav */
-body { overflow-x: hidden; }
+body {
+	overflow-x: hidden;
+	width: 100%;
+
+}
 .tm-header {
 	background: #0c2341;
 	height: 70px;
@@ -45,7 +55,7 @@ body { overflow-x: hidden; }
 	color: #FF720B;
 }
 .navbar-brand{
-	padding-bottom: 15px;
+	padding-bottom: 10px;
 }
 .mobile-menu-icon { display: none; }
 .tm-nav {
@@ -284,6 +294,7 @@ body { overflow-x: hidden; }
 /* Footer */
 .tm-black-bg { background-color: #0c2341; }
 .tm-copyright-text {
+	font-size: 0.5rem;
 	color: white;
 	text-align: center;
 	padding-top: 20px;
@@ -915,8 +926,18 @@ hr { border-top: 1px solid #111010; }
 		width: 100%;
 		text-align: center;
 	}
+
+	.judulmap{
+		font-size: 1.5rem;
+	}
+
+	.maps {
+		height: 300px;
+	}
+	
 }
 
 @media screen and (max-width: 400px) {
 	.tm-section-title {	font-size: 28px; }
+	
 }

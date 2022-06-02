@@ -94,6 +94,8 @@
       nav.classList.remove('bg-primary', 'shadow')
     }
   })
+
+  //map.addLayer(markers);
 </script>
 </body>
 

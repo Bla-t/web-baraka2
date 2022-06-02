@@ -2,7 +2,7 @@
 
 class App
 {
-  protected $controller = 'pages';
+  protected $controller = 'home';
   protected $method = 'index';
   protected $param = [];
 
@@ -12,10 +12,10 @@ class App
 
     //controller
     $url = $this->URL();
-    /*if (file_exists('app/controllers/' . $url[0] . '.php')) {
+    if (file_exists('app/controllers/' . $url[0] . '.php')) {
       $this->controller = $url[0];
       unset($url[0]);
-    }*/
+    }
 
     require_once 'app/controllers/' . $this->controller . '.php';
     $this->controller = new $this->controller;
