@@ -1,7 +1,7 @@
 <!-- Banner Image  -->
 <div class="banner-image w-100 vh-100 d-flex justify-content-center align-items-center">
   <div class="content text-center">
-    <h1 class="text-dark">Cek Tarif</h1>
+    <h1 class="text-dark">Cek Tarif dari Tempatmu ke Tujuan Dia</h1>
   </div>
 </div>
 

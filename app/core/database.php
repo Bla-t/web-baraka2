@@ -57,7 +57,7 @@ class database
   //executer
   public function exec()
   {
-    $this->stmt->exe();
+    $this->stmt->exec();
   }
   public function results()
   {
@@ -67,6 +67,6 @@ class database
   public function resuld()
   {
     $this->exec();
-    return $this->stmt->single(PDO::FETCH_ASSOC);
+    return $this->stmt->fetch(PDO::FETCH_ASSOC);
   }
 }

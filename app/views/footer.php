@@ -12,7 +12,7 @@
           - 0812 8289 8392
           <br />
           <a class="foot-link" href="https://wa.me/+6281313724646" target="blank">
-            <i class="fa fa-whatsapp">
+            <i class="fa-brands fa-whatsapp">
               &nbsp;081313724646
             </i>
           </a>
@@ -23,7 +23,7 @@
           - 0812 8290 8302
           <br />
           <a href="https://wa.me/+6281313724646" target="blank" class="foot-link">
-            <i class="fa fa-whatsapp">
+            <i class="fa-brands fa-whatsapp">
               081313724646
             </i>
           </a>
@@ -34,7 +34,7 @@
           - 0812 8044 3372
           <br />
           <a href="https://wa.me/+6281282908302" target="blank" class="foot-link">
-            <i class="fa fa-whatsapp">
+            <i class="fa-brands fa-whatsapp">
               0812 8290 8302
             </i>
           </a>
@@ -56,13 +56,13 @@
         </h5>
         <div class="form-inline">
           <a class="tm-copyright-content" href="https://www.facebook.com/profile.php?id=100005558985070" target="blank">
-            <i class="fa fa-facebook-official" style="font-size: 1.8em;"></i>
+            <i class="fa-brands fa-facebook-square" style="font-size: 1.8em;"></i>
           </a>
           <a class="tm-copyright-content" href="#">
-            <i class="fa fa-instagram" style="font-size: 1.8em;"></i>
+            <i class="fa-brands fa-instagram" style="font-size: 1.8em;"></i>
           </a>
           <a class="tm-copyright-content" href="https://twitter.com/basartacoid" target="blank">
-            <i class="fa fa-twitter" style="font-size: 1.8em;"></i>
+            <i class="fa-brands fa-twitter-square" style="font-size: 1.8em;"></i>
           </a>
           <a class="tm-copyright-content" href="mailto:cs@basarta.co.id" target="blank">
             <!-- <i class="fa fa-facebook-official" ></i> -->
@@ -82,7 +82,6 @@
   </div>
 </footer>
 <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
-<script src="<?= BASEURL; ?>/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="<?= BASEURL; ?>/js/templatemo-script.js"></script>
 <script type="text/javascript">
   var nav = document.querySelector('nav')

@@ -1,7 +1,7 @@
 <!-- Banner Image  -->
 <div class="banner-image w-100 vh-100 d-flex justify-content-center align-items-center">
   <div class="content text-center">
-    <h1 class="text-dark">BST</h1>
+    <h1 class="text-dark">Cari di Mana Paketmu Berada</h1>
   </div>
 </div>
 
@@ -9,7 +9,7 @@
 <div class="container my-5 d-grid gap-5">
   <div class="p-5 border">
     <div class="ratio ratio-1x1">
-      <iframe class="embed-responsive-item" src="https://opsbasarta.com/tracking.php"></iframe>
+      <iframe class="embed-responsive-item" src="https://pindah.barcode-bst.com/tracking/tracking.php"></iframe>
       <!-- <div>1x1</div> -->
     </div>
   </div>
