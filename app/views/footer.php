@@ -93,8 +93,19 @@
       nav.classList.remove('bg-primary', 'shadow')
     }
   })
-
   //map.addLayer(markers);
+
+  $(document).ready(function() {
+    let ass = document.getElementById('jml').value;
+    for (let i = 0; i < ass; i++) {
+      $("#srch_" + i).on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#isi_" + i + " tr").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+    }
+  });
 </script>
 </body>
 

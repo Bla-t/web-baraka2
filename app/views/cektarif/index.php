@@ -1,17 +1,15 @@
 <!-- Banner Image  -->
 <div class="banner-image w-100 vh-100 d-flex justify-content-center align-items-center">
   <div class="content text-center">
-    <h1 class="text-dark">Cek Tarif dari Tempatmu ke Tujuan Dia</h1>
+    <h1 class="text-dark">Cek Harga Pengiriman </h1>
+    <h1 class="text-dark">dari Tempatmu ke Tempat Dia</h1>
   </div>
 </div>
 
 <!-- Main Content Area -->
 <div class="container my-5 d-grid gap-5">
-  <div class="p-5 border">
-    <div class="ratio ratio-1x1">
-      <iframe class="embed-responsive-item" src="https://barcode-bst.com/pindah/Tarif/extern.php"></iframe>
-      <!-- <div>1x1</div> -->
-    </div>
+  <div class="ratio ratio-1x1">
+    <iframe class="embed-responsive-item" src="https://tax.barcode-bst.com"></iframe>
   </div>
   <div class="row">
     <div class="col-md-6">
