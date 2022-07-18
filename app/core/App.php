@@ -2,7 +2,7 @@
 
 class App
 {
-  protected $controller = 'home';
+  protected $controller = 'cektarif';
   protected $method = 'index';
   protected $param = [];
 

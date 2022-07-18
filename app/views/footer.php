@@ -9,34 +9,34 @@
         <p class="tm-copyright-content">
           Kontak Marketing:
           <br />
-          - 0812 8289 8392
+          - 081282898392
           <br />
           <a class="foot-link" href="https://wa.me/+6281313724646" target="blank">
             <i class="fa-brands fa-whatsapp">
-              &nbsp;081313724646
             </i>
+            081313724646
           </a>
         </p>
         <p class="tm-copyright-content">
           Layanan paket dari Jakarta ke Daerah:
           <br />
-          - 0812 8290 8302
+          - 081282908302
           <br />
           <a href="https://wa.me/+6281313724646" target="blank" class="foot-link">
             <i class="fa-brands fa-whatsapp">
-              081313724646
             </i>
+            081313724646
           </a>
         </p>
         <p class="tm-copyright-content">
           Layanan paket dari daerah ke Jakarta:
           <br />
-          - 0812 8044 3372
+          - 081280443372
           <br />
           <a href="https://wa.me/+6281282908302" target="blank" class="foot-link">
             <i class="fa-brands fa-whatsapp">
-              0812 8290 8302
             </i>
+            081282908302
           </a>
         </p>
       </div>
@@ -47,7 +47,7 @@
         <p class="tm-copyright-content">
           Jl. Raya Setu Jl. Sejahtera No.21, RW.1, Setu, Kec. Cipayung, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13880
           <br />
-          Telp: 021 – 84903838
+          Telp: 021–84903838
         </p>
       </div>
       <div class="col-md-4">
@@ -83,6 +83,7 @@
 </footer>
 <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="<?= BASEURL; ?>/js/templatemo-script.js"></script>
+<script src="<?= $BASEURL; ?> /js/cabang.js"></script>
 <script type="text/javascript">
   var nav = document.querySelector('nav')
 
@@ -94,19 +95,26 @@
     }
   })
   //map.addLayer(markers);
-
   $(document).ready(function() {
-    let ass = document.getElementById('jml').value;
-    for (let i = 0; i < ass; i++) {
-      $("#srch_" + i).on("keyup", function() {
-        var value = $(this).val().toLowerCase();
-        $("#isi_" + i + " tr").filter(function() {
-          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    let ass = document.getElementById("jml");
+    if (ass) {
+      let aas = ass.value;
+      for (let i = 0; i < aas; i++) {
+        $("#srch_" + i).on("keyup", function() {
+          var value = $(this).val().toLowerCase();
+          $("#isi_" + i + " tr").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+          });
         });
-      });
+      }
     }
   });
 </script>
+<div class="konten-samping">
+  <a href="https://wa.me/+6281282908302" target="blank" class=" wangsaf">
+    <img src="<?= BASEURL; ?>/img/wangsaf.png" alt="wangsaf" width="85">
+  </a>
+</div>
 </body>
 
 </html>

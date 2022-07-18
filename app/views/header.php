@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="<?= BASEURL; ?>/css/templatemo-style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="<?= BASEURL; ?>/js/jquery3.6.js"></script>
   <script src="<?= BASEURL; ?>/js/leaflet.markercluster-src.js"></script>
   <script src="<?= BASEURL; ?>/js/leaflet-search.js"></script>
   <script src="<?= BASEURL; ?>/js/BST.js"></script>
@@ -19,13 +20,6 @@
   <link rel="stylesheet" href="<?= BASEURL; ?>/css/MarkerCluster.Default.css" />
   <link rel="stylesheet" href="<?= BASEURL; ?>/css/leaflet-search.css" />
   <style>
-    .banner-image {
-      background-image: url('<?= BASEURL; ?>/img/banner-img.jpg');
-      background-size: cover;
-      /*filter: blur(8px);
-      -webkit-filter: blur(8px);*/
-    }
-
     .navbar-dark {
       background-color: #233b53 !important;
     }
@@ -56,14 +50,21 @@
       background-color: #233b53;
       color: cornsilk;
     }
+
+    .content h1 {
+      color: #FFD800;
+      font-size: 5vw;
+      /* -webkit-text-stroke: 0.5px aqua; */
+    }
   </style>
 </head>
+
 
 <body>
   <!-- Navbar  -->
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark p-md-3">
     <div class="container">
-      <a class="navbar-brand" href="<?= BASEURL; ?>/home"><img src="<?= BASEURL; ?>/img/logo bst2.png" alt="logo" width="150"></a>
+      <a class="navbar-brand" href="#"><img src="<?= BASEURL; ?>/img/logo bst2.png" alt="logo" width="150"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -77,41 +78,21 @@
           <li class="nav-item">
             <a class="nav-link text-white" href="<?= BASEURL; ?>/tracking">Tracking</a>
           </li>
-          <li class="nav-item">
+          <!--<li class="nav-item">
             <a class="nav-link text-white" href="<?= BASEURL; ?>/tentang">Tentang Kami</a>
-          </li>
+          </li>-->
           <li class="nav-item">
             <a class="nav-link text-white" href="<?= BASEURL; ?>/cabang">Cabang</a>
           </li>
-          <li class="nav-item">
+          <!--<li class="nav-item">
             <a class="nav-link text-white" href="#">News Center</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-white" href="<?= BASEURL; ?>/karir">Karir</a>
           </li>
-          <!-- <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" style="text-decoration: none;" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Karir
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="<?= BASEURL; ?>/karir">Lowongan DKI Jakarta</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">Lowongan Jawa Barat</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">Lowongan Jawa Tengah</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">Lowongan Jawa Timur</a></li>
-            </ul>
-          </li> -->
           <li class="nav-item">
             <a class="nav-link text-white" href="#">Hubungi kami</a>
-          </li>
+          </li>-->
         </ul>
       </div>
     </div>

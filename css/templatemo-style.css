@@ -8,6 +8,27 @@
  */
 
 /* CSS Resets */ 
+.wangsaf{
+	/* background-color: #1eb860; */
+	position: fixed;
+	z-index: 1;
+	right: 0;
+	bottom: 7%;
+	padding-right: 10px;
+}
+a {
+	text-decoration: none;
+}
+.img{
+	margin:auto;
+	width: 50%;
+}
+.cart-kard{
+	background-color:rgba(199, 219, 255, 0.411);
+}
+.cart-kard h3{
+	color:rgb(47, 74, 122);
+}
 .p-md-3{
 	padding: 0 !important;
 }
@@ -294,7 +315,8 @@ body {
 /* Footer */
 .tm-black-bg { background-color: #0c2341; }
 .tm-copyright-text {
-	font-size: 0.5rem;
+	background-color: #2b4c92;
+	font-size: 0.8rem;
 	color: white;
 	text-align: center;
 	padding-top: 20px;
@@ -939,5 +961,8 @@ hr { border-top: 1px solid #111010; }
 
 @media screen and (max-width: 400px) {
 	.tm-section-title {	font-size: 28px; }
-	
+	.cart-kard h3{
+		font-size: 0.8rem;
+		margin: auto;
+	}
 }

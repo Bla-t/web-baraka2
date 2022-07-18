@@ -1,16 +1,24 @@
 <!-- Banner Image  -->
 <?php
-$dbh = mysqli_connect('localhost', 'root', '', 'tes');
+$dbh = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
 // Check connection
-if (mysqli_connect_errno()) {
-  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+if (mysqli_connect_errno($dbh)) {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error($dbh);
   exit();
 }
 ?>
+<style>
+  .banner-image {
+    background-image: url('<?= BASEURL; ?>/img/background1.jpeg');
+    background-size: cover;
+    /*filter: blur(8px);
+      -webkit-filter: blur(8px);*/
+  }
+</style>
 <div class="banner-image w-100 vh-100 d-flex justify-content-center align-items-center">
   <div class="content text-center">
-    <h1 class="text-dark">CABANG</h1>
+    <h1>CABANG</h1>
   </div>
 </div>
 
