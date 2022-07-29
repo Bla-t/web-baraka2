@@ -1,6 +1,15 @@
+<style>
+  .banner-image {
+    /* background-image: url('<?= BASEURL; ?>/img/background2.jpeg'); */
+    background-color: coral;
+    background-size: cover;
+    /*filter: blur(8px);
+      -webkit-filter: blur(8px);*/
+  }
+</style>
 <div class="banner-image w-100 vh-100 d-flex justify-content-center align-items-center">
   <div class="content text-center">
-    <h1 class="text-dark">Lowongan Pekerjaan</h1>
+    <h1>Lowongan Pekerjaan</h1>
   </div>
 </div>
 <div class="container my-5 d-grid gap-5">

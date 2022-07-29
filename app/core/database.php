@@ -12,7 +12,8 @@ class database
 
   public function __construct()
   {
-    $dsn = 'mysql:host' . $this->host . ';' . $this->db_name;
+    // dsn =data source name
+    $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->db_name;
 
     $option = [
       PDO::ATTR_PERSISTENT => true,
@@ -55,18 +56,18 @@ class database
   }
 
   //executer
-  public function exec()
+  public function mulai()
   {
-    $this->stmt->exec();
+    $this->stmt->execute();
   }
-  public function results()
+  public function semua()
   {
-    $this->exec();
+    $this->mulai();
     return $this->stmt->fetchall(PDO::FETCH_ASSOC);
   }
-  public function resuld()
+  public function solo()
   {
-    $this->exec();
+    $this->mulai();
     return $this->stmt->fetch(PDO::FETCH_ASSOC);
   }
 }

@@ -1,5 +1,5 @@
 var addressPoints = [
-        [-1.6350836, 103.5496536, '<a href="https://www.google.co.id/maps/place/PT+BARAKA+SARANA+TAMA+JAMBI/@-1.6350836,103.5496536,17z/data=!4m8!1m2!2m1!1sPT.+Baraka+Sarana+Tama+jambi!3m4!1s0x2e25877738218c03:0x6cb1d458b56fbb73!8m2!3d-1.6379308!4d103.5536754?hl=id" target="blank">JAMBI</a>'],
+        [-1.6350836, 103.5496536, '<a href="https://www.google.co.id/maps/place/PT+BARAKA+SARANA+TAMA+JAMBI/@-1.6350836,103.5496536,17z/data=!4m8!1m2!2m1!1sPT.+Baraka+Sarana+Tama+jambi!3m4!1s0x2e25877738218c03:0x6cb1d458b56fbb73!8m2!3d-1.6379308!4d103.5536754?hl=id" target="blank" style="text-decoration:none;">JAMBI</a>'],
         [-5.3921866, 105.2668078, '<a href="https://www.google.com/maps/place/PT.+BARAKA+SARANA+TAMA/@-5.3921866,105.2668078,14.21z/data=!4m5!3m4!1s0x2e40db0e579f8443:0xfa6c9e1c3aa342a5!8m2!3d-5.392578!4d105.2884408" target="blank">BANDAR LAMPUNG</a>'],
         [-5.1344478, 105.2963594, '<a href="https://www.google.com/maps/place/PT.BARAKA+Metro/@-5.1344478,105.2963594,17z/data=!3m1!4b1!4m5!3m4!1s0x2e40b9291e507ebd:0xac9d89da8f751492!8m2!3d-5.1344478!4d105.2985481" target="blank">METRO</a>'],
         [-2.9974672, 104.7180107, '<a href="https://www.google.com/maps/place/PT+BARAKA+SARANA+TAMA+PALEMBANG/@-2.9974672,104.7180107,17z/data=!3m1!4b1!4m5!3m4!1s0x2e3b9f9dd5d45105:0xbd0bd4f24456b979!8m2!3d-2.9974672!4d104.7201994" target="blank">PALEMBANG</a>'],
@@ -118,4 +118,4 @@ var addressPoints = [
         [-7.2696026,112.7283082,'<a href="https://www.google.com/maps/place/Baraka+Kedungdoro+Grandflower/@-7.2696026,112.7283082,21z/data=!4m5!3m4!1s0x0:0x57850e1402aa82ac!8m2!3d-7.2695896!4d112.7283358?hl=in" target="blank">Kedungdoro</a>'],
         [-7.7031149,114.0019605,'<a href="https://www.google.com/maps/place/BARAKA+SARANA+TAMA+CAB+SITUBONDO/@-7.7030941,113.9998253,17z/data=!3m1!4b1!4m5!3m4!1s0x2dd7299fea36a6fd:0x649545d5e2141f2c!8m2!3d-7.7030941!4d114.002014" target="blank">Situbondo</a>'],
         [-7.8681906,112.5279122,'<a href="https://www.google.com/maps/place/Jl.+Semeru+No.54,+Sisir,+Kec.+Batu,+Kota+Batu,+Jawa+Timur+65314/@-7.8681906,112.5279122,20.26z/data=!4m5!3m4!1s0x2e7880cbad25742f:0xe73ff79df6409563!8m2!3d-7.868148!4d112.5280838?hl=en" target="blank">BATU</a>']
-]; 
+];  

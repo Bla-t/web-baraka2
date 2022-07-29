@@ -7,7 +7,81 @@
  *
  */
 
+ header {
+  position: relative;
+  background-color: black;
+  height: 75vh;
+  min-height: 25rem;
+  width: 100%;
+  overflow: hidden;
+}
+
+header video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 0;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+header .container {
+  position: relative;
+  z-index: 2;
+}
+
+header .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+/* Media Query for devices withi coarse pointers and no hover functionality */
+
+/* This will use a fallback image instead of a video for devices that commonly do not support the HTML5 video element */
+/*
+@media (pointer: coarse) and (hover: none) {
+  header {
+    background: url("../img/homevideo.mp4") black no-repeat center center scroll;
+  }
+
+  header video {
+    display: none;
+  }
+}*/
+
+ /**slider css home
+ */
+ .p-5 p{
+	font-size: 0.9rem;
+ }
+ .btn-primary{
+	background-color: #0c2341;
+	text-decoration: none;
+ }
+/****end of css slider****/
+.carousel-control-prev-icon,
+.carousel-control-next-icon{
+ font-size: 3vw;
+ color: #D2B731;
+}
 /* CSS Resets */ 
+.content h1 {
+	color:  rgb(255, 255, 255);
+	font-size: 5rem;
+	/* -webkit-text-stroke: 1px #9db1f3; */
+}
 .wangsaf{
 	/* background-color: #1eb860; */
 	position: fixed;
@@ -964,5 +1038,8 @@ hr { border-top: 1px solid #111010; }
 	.cart-kard h3{
 		font-size: 0.8rem;
 		margin: auto;
+	}
+	.content h1{
+	font-size: 2rem;
 	}
 }
