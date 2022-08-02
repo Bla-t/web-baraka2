@@ -60,14 +60,23 @@ class database
   {
     $this->stmt->execute();
   }
+
+  #wrap isi data seluruh
   public function semua()
   {
     $this->mulai();
     return $this->stmt->fetchall(PDO::FETCH_ASSOC);
   }
-  public function solo()
+
+  #wrap isi data satuan
+  public function satuan()
   {
     $this->mulai();
     return $this->stmt->fetch(PDO::FETCH_ASSOC);
+  }
+
+  public function cekhitung()
+  {
+    return $this->stmt->rowCount();
   }
 }

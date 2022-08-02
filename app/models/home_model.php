@@ -1,7 +1,7 @@
 <?php
-class cabang_model
+class home_model
 {
-  private $tbl = 'latlong';
+  private $tbl = 'slider';
   private $db;
   public function __construct()
   {
@@ -9,7 +9,7 @@ class cabang_model
   }
 
 
-  public function getlatlong()
+  public function slider()
   {
     $this->db->query('SELECT * FROM ' . $this->tbl);
     return $this->db->semua();

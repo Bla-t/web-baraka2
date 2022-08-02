@@ -70,7 +70,6 @@ if (mysqli_connect_errno($dbh)) {
     <br>
     <form action="" method="POST">
       <input type="text" class="form-control form-control-lg" name="cabs" id="cabwang" onchange="this.form.submit();" placeholder="Cari Cabang.??">
-
       <?php
       if (isset($_POST['cabs'])) {
         $n = 1;
