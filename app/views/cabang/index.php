@@ -69,83 +69,89 @@ if (mysqli_connect_errno($dbh)) {
     </div>
     <br>
     <form action="" method="POST">
-      <input type="text" class="form-control form-control-lg" name="cabs" id="cabwang" onchange="this.form.submit();" placeholder="Cari Cabang.??">
+      <input type="text" class="form-control form-control-lg" name="cabs" id="cabwang" onchange="this.form.submit();" placeholder="Cari Cabang.??" required>
       <?php
       if (isset($_POST['cabs'])) {
-        $n = 1;
+
         $param = $_POST['cabs'];
         $result = mysqli_query($dbh, "SELECT * FROM `isi_cabang` WHERE `alamat` LIKE '%$param%' OR `nama_cabang` LIKE '%$param'") or die(mysqli_error($dbh));
-        switch ($result) {
-          case empty($param):
-            echo '<h4 class="display-4> INPUT KOSONG</h4>"';
-            # code...
-            break;
-          case !empty($result):
-            echo '<br>';
+        if ($param == ' ') {
       ?>
-            <table class="table table-sm table-hover">
-              <thead>
+          <br>
+          <h4 class="d-flex display-6 justify-content-center align-items-center fw-semibold text-warning"> INPUT KOSONG</h4>
+        <?php
+        } else if (strlen($param) < 4) {
+        ?>
+          <br>
+          <h4 class="d-flex display-6 justify-content-center align-items-center fw-semibold text-warning"> INPUT KURANG</h4>
+        <?php
+        }
+        if (mysqli_num_rows($result) == 0) {
+          echo '<br>
+          <h4 class="d-flex display-6 justify-content-center align-items-center fw-semibold text-warning"> ALAMAT/CABANG YANG DI CARI TIDAK ADA</h4>';
+        } else {
+        ?>
+
+          <br>
+          <table class="table table-sm table-hover">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Nama Cabang</th>
+                <th>ALamat</th>
+                <th>No.tlp</th>
+                <th>Penerimaan</th>
+                <th>Pengiriman</th>
+                <th>map</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php
+              $n = 1;
+              while ($hasil = mysqli_fetch_assoc($result)) { ?>
                 <tr>
-                  <th>No</th>
-                  <th>Nama Cabang</th>
-                  <th>ALamat</th>
-                  <th>No.tlp</th>
-                  <th>Penerimaan</th>
-                  <th>Pengiriman</th>
-                  <th>map</th>
-                </tr>
-              </thead>
-              <tbody id="isi_<?= $tbl++; ?>">
-                <?php
-                while ($hasil = mysqli_fetch_assoc($result)) { ?>
-                  <tr>
-                    <td><?= $n++; ?>.</td>
-                    <td><?= $hasil['nama_cabang']; ?></td>
-                    <td><?= $hasil['alamat']; ?></td>
-                    <td><?= $hasil['no_tlp']; ?></td>
+                  <td><?= $n++; ?>.</td>
+                  <td><?= $hasil['nama_cabang']; ?></td>
+                  <td><?= $hasil['alamat']; ?></td>
+                  <td><?= $hasil['no_tlp']; ?></td>
+                  <?php
+                  if (empty($hasil['recieve'])) {
+                    $isirec = '<i class="fas fa-times" style="color:#F46000;"></i>';
+                  } else {
+                    $isirec = '<i class="fas fa-check" style="color:#1FE100;"></i>';
+                  }
+                  if (empty($hasil['delivere'])) {
+                    $isidel = '<i class="fas fa-times" style="color:#F46000;"></i>';
+                  } else {
+                    $isidel = '<i class="fas fa-check" style="color:#1FE100;"></i>';
+                  }
+                  ?>
+                  <td><?= $isirec; ?></td>
+                  <td><?= $isidel; ?></td>
+                  <td>
                     <?php
-                    if (empty($hasil['recieve'])) {
-                      $isirec = '<i class="fas fa-times" style="color:#F46000;"></i>';
+                    if (empty($hasil['map'])) {
+                      echo '<i class="fas fa-earth-asia" style="color:#878787 ;" disabled></i>';
                     } else {
-                      $isirec = '<i class="fas fa-check" style="color:#1FE100;"></i>';
-                    }
-                    if (empty($hasil['delivere'])) {
-                      $isidel = '<i class="fas fa-times" style="color:#F46000;"></i>';
-                    } else {
-                      $isidel = '<i class="fas fa-check" style="color:#1FE100;"></i>';
-                    }
-                    ?>
-                    <td><?= $isirec; ?></td>
-                    <td><?= $isidel; ?></td>
-                    <td>
-                      <?php
-                      if (empty($hasil['map'])) {
-                        echo '<i class="fas fa-earth-asia" style="color:#878787 ;" disabled></i>';
-                      } else {
-                        echo '<a href="' . $hasil['map'] . '" target="blank" style="color:#01BF57 ;">
+                      echo '<a href="' . $hasil['map'] . '" target="blank" style="color:#01BF57 ;">
                             <i class="fas fa-earth-asia" disabled></i>
                             </a>';
-                      }
-                      ?>
-                    </td>
-                  </tr>
-                <?php
-                }  ?>
-              </tbody>
-            </table>
-      <?php
-            break;
-
-          default:
-            echo '<h4 class="display-4>Cabang yang anda cari tidak di temukan / salah dalam pengetikan </h4>"';
-            break;
-        }
+                    }
+                    ?>
+                  </td>
+                </tr>
+            <?php
+              }
+            }  ?>
+            </tbody>
+          </table>
+        <?php
       }
-      ?>
+        ?>
     </form>
   </div>
   <div class="container">
-    <h2 class="d-flex justify-content-center align-items-center mb-2">Cari Cabang Paling Dekat Dengan mu</h2>
+    <h2 class="d-flex justify-content-center align-items-center mb-2">Cari Cabang Terdekat Dengan mu</h2>
     <div class="accordion" id="accordion">
       <?php
       $ids = 0;

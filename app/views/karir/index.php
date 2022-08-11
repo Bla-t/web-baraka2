@@ -1,7 +1,7 @@
 <style>
   .banner-image {
-    /* background-image: url('<?= BASEURL; ?>/img/background2.jpeg'); */
-    background-color: coral;
+    background-image: url('<?= BASEURL; ?>/img/karir.jpg');
+    /* background-color: coral; */
     background-size: cover;
     /*filter: blur(8px);
       -webkit-filter: blur(8px);*/

@@ -61,6 +61,35 @@
           Memberikan layanan yang bersih, tranparan dan profesional dalam berhubungan dengan karyawan, pelanggan, pemasok, mitra dan seluruh anggota masyarakat.</p>
 
       </div>
+      <div class="p-5">
+        <div class="content text-center">
+          <h4 style="color:#23305A;">
+            MOTO
+          </h4>
+        </div><br>
+        <div class="row">
+          <div class="col">
+            <div class="content text-center">
+              <h4 style="color:#23305A;">
+                MOTO
+              </h4>
+            </div>
+          </div>
+          <div class="col">
+            <div class="content text-center">
+              <h4 style="color:#23305A;">
+                MOTO
+              </h4>
+            </div>
+          </div>
+          <div class="col">
+            <div class="content text-center">
+              <h4 style="color:#23305A;">
+                MOTO
+              </h4>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>

@@ -15,4 +15,15 @@ class home_model
     return $this->db->semua();
     // return $this->lat;
   }
+  public function jumlah()
+  {
+
+    $this->db->query('SELECT * FROM ' . $this->tbl);
+    return $this->db->cekhitung();
+  }
+  /*public function cekcount($data)
+  {
+    $this->db->query("SELECT * FROM" . $this->tbl . "WHERE `alamat` like '%" . $data . "%' OR nama_cabang LIKE '%$this->data2%'");
+    return $this->db->cekhitung();
+  }*/
 }

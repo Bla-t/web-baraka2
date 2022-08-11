@@ -77,6 +77,7 @@ class database
 
   public function cekhitung()
   {
+    $this->mulai();
     return $this->stmt->rowCount();
   }
 }

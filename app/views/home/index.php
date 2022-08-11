@@ -6,6 +6,15 @@
     filter: blur(8px);
       -webkit-filter: blur(8px);
   } */
+  /*.tales {
+    width: 50%;
+  }
+
+  .carousel-inner {
+    width: 100%;
+    max-height: 200px !important;
+  }  
+*/
   span .tex-primary {
     color: #23305A;
   }
@@ -33,46 +42,64 @@
 </header>
 <!-- Main Content Area -->
 <div class="container my-5 d-grid gap-5">
-  <div class="content text-center">
-    <h2 class="display-4" style="color:#23305A;">Cabang Baru</h2></br>
-  </div>
-  <div class="p-5 border">
-    <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  <div class="row">
+    <div class="col-md-12 p-5">
+      <div class="content text-center">
+        <h3 class="display-6" style="color:#23305A;">CABANG BARU</h3>
+      </div><br>
+      <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <?php
+          for ($i = 0; $i < $data['jumlah']; $i++) {
+            if ($i == 0) {
+              $class =  'class="active"';
+            } else if ($i > 0) {
+              $class = '';
+            }
+          ?>
+            <button type="button" data-bs-target="#carouselExampleDark" <?= $class; ?> data-bs-slide-to="<?= $i; ?>" aria-label="Slide <?= $i + 1; ?>"></button>
+          <?php
+          }
+          ?>
+        </div>
+        <div class="carousel-inner">
+          <?php
+          $a = 0;
+          foreach ($data['slide'] as $slide) {
+            if ($a == 0) {
+              $class =  'active';
+            } else if ($a > 0) {
+              $class = '';
+            }
+          ?>
+            <div id="<?= $a++; ?>" class="carousel-item <?= $class; ?>" data-bs-interval="20000">
+              <img src="<?= BASEURL . '/img/slideimg/' . $slide['gambr']  ?>" class="d-block w-100" alt="<?= $slide['gambr']; ?>">
+            </div>
+          <?php
+          }
+          ?>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
-      <div class="carousel-inner">
-        <div class="carousel-item active" data-bs-interval="10000">
-          <img src="..." class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item" data-bs-interval="2000">
-          <img src="..." class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="..." class="d-block w-100" alt="...">
-        </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
     </div>
   </div>
   <div class="content text-center">
-    <h2 class="display-5" style="color:#23305A;">
-      Keunggulan Jasa Kami
-    </h2>
-  </div><br>
+    <h3 class="display-6" style="color:#23305A;">
+      KEUNGGULAN JASA KAMI
+    </h3>
+  </div>
   <div class="row">
     <div class="col">
       <div class="p-5">
         <div class="content text-center">
+          <img src="<?= BASEURL; ?>/img/proffs.png" alt="jam" srcset="" width="62%"><br><br>
           <h3 style="color:#23305A;">
             PROFESIONAL
           </h3>
@@ -85,6 +112,7 @@
     <div class="col">
       <div class="p-5">
         <div class="content text-center">
+          <img src="<?= BASEURL; ?>/img/JAM.png" alt="jam" srcset="" width="35%"><br><br>
           <h3 style="color:#23305A;">
             TEPAT WAKTU
           </h3>
@@ -97,6 +125,8 @@
     <div class="col">
       <div class="p-5">
         <div class="content text-center">
+          <img src="<?= BASEURL; ?>/img/cs.png" alt="jam" srcset="" width="33%"><br><br>
+
           <h3 style="color:#23305A;">
             PENGALAMAN
           </h3>
@@ -109,9 +139,9 @@
 
   </div>
   <div class="content text-center">
-    <h2 class="display-5" style="color:#23305A;">
+    <h3 class="display-6" style="color:#23305A;">
       TENTANG KAMI
-    </h2>
+    </h3>
   </div><br>
   <div class="row">
     <div class="col-md-6">
