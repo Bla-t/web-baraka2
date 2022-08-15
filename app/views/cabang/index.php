@@ -53,7 +53,8 @@ if (mysqli_connect_errno($dbh)) {
 
         map.addControl(controlSearch);
         /////////////////////////
-        var addressPoints = <?= json_encode($data['map_data']); ?>;
+        var addressPoints =
+          <?= json_encode($data['map_data']); ?>;
 
         for (var i = 0; i < addressPoints.length; i++) {
           var a = addressPoints[i];
@@ -69,7 +70,10 @@ if (mysqli_connect_errno($dbh)) {
     </div>
     <br>
     <form action="" method="POST">
-      <input type="text" class="form-control form-control-lg" name="cabs" id="cabwang" onchange="this.form.submit();" placeholder="Cari Cabang.??" required>
+      <div class="input-group mb-3">
+        <input type="text" class="form-control form-control-lg" placeholder="Cari cabang..." aria-label="Cari cabang" name="cabs" aria-describedby="button-addon2" required>
+        <button class="btn bg-primary text-white" type="submit" id="button-addon2">Cari Cabang</button>
+      </div>
       <?php
       if (isset($_POST['cabs'])) {
 
@@ -151,7 +155,7 @@ if (mysqli_connect_errno($dbh)) {
     </form>
   </div>
   <div class="container">
-    <h2 class="d-flex justify-content-center align-items-center mb-2">Cari Cabang Terdekat Dengan mu</h2>
+    <h2 class="d-flex justify-content-center align-items-center mb-2">LIST CABANG</h2>
     <div class="accordion" id="accordion">
       <?php
       $ids = 0;

@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" />
   <!---css template-->
   <link rel="stylesheet" href="<?= BASEURL; ?>/css/templatemo-style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src="<?= BASEURL; ?>/js/jquery3.6.js"></script>
   <script src="<?= BASEURL; ?>/js/leaflet.markercluster-src.js"></script>
@@ -54,7 +55,6 @@
   </style>
 </head>
 
-
 <body>
   <!-- Navbar  -->
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
@@ -89,7 +89,7 @@
             <a class="nav-link text-white" href="<?= BASEURL; ?>/karir">Karir</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="#">Hubungi kami</a>
+            <a class="nav-link text-white" href="<?= BASEURL; ?>/kontak">Hubungi kami</a>
           </li>
         </ul>
       </div>

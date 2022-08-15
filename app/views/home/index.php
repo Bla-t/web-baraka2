@@ -112,7 +112,8 @@
     <div class="col">
       <div class="p-5">
         <div class="content text-center">
-          <img src="<?= BASEURL; ?>/img/JAM.png" alt="jam" srcset="" width="35%"><br><br>
+          <img src="<?= BASEURL; ?>/img/JAM.png" alt="jam" srcset="" width="35%">
+          <br><br>
           <h3 style="color:#23305A;">
             TEPAT WAKTU
           </h3>
@@ -126,7 +127,6 @@
       <div class="p-5">
         <div class="content text-center">
           <img src="<?= BASEURL; ?>/img/cs.png" alt="jam" srcset="" width="33%"><br><br>
-
           <h3 style="color:#23305A;">
             PENGALAMAN
           </h3>
