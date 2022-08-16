@@ -6,7 +6,15 @@
     /*filter: blur(8px);
     -webkit-filter: blur(8px);*/
   }
+
+  h1 {
+    text-shadow: 3px 3px 6px #000000;
+  }
 </style>
+<?php
+$kontak = $this->model('kontak_model')->givekontak();
+$cs = $this->model('kontak_model')->givesosmed();
+?>
 <div class="banner-image w-100 vh-100 d-flex justify-content-center align-items-center">
   <div class="content text-center">
     <h1>Pelayanan yang RESPONSIF</h1>
@@ -43,8 +51,8 @@
           </h3>
         </div><br>
         <p class="content text-center">
-          Telepon - (021–84903838) <br>
-          WhatsApp - (0812-8290-8302)
+          Telepon - (<?= $kontak['tlp_pusat']; ?>) <br>
+          WhatsApp - (<?= $kontak['daerah']; ?>)
         </p>
       </div>
     </div>
@@ -57,7 +65,8 @@
           </h3>
         </div><br>
         <p class="content text-center">
-          <a href="mailto:cs@basarta.co.id" style="text-decoration:none;">cs@basarta.co.id</a>
+          <a href="mailto:<?= $cs['wa_daerah']; ?>" style="text-decoration:none;"><?= $cs['wa_daerah']; ?></a>
+          <a href="mailto:<?= $cs['jkt']; ?>" style="text-decoration:none;"><?= $cs['jkt']; ?></a>
         </p>
       </div>
     </div>

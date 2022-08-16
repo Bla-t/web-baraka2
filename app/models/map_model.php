@@ -1,7 +1,7 @@
 <?php
-class home_model
+class map_model
 {
-  private $tbl = 'slider';
+  private $tbl = 'latlong';
   private $db;
   public function __construct()
   {
@@ -9,16 +9,10 @@ class home_model
   }
 
 
-  public function slider()
+  public function getlatlong()
   {
     $this->db->query('SELECT * FROM ' . $this->tbl);
     return $this->db->semua();
     // return $this->lat;
-  }
-  public function jumlah()
-  {
-
-    $this->db->query('SELECT * FROM ' . $this->tbl);
-    return $this->db->cekhitung();
   }
 }

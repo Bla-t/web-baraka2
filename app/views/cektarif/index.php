@@ -6,6 +6,10 @@
     /*filter: blur(8px);
       -webkit-filter: blur(8px);*/
   }
+
+  h1 {
+    text-shadow: 2px 2px 4px #000000;
+  }
 </style>
 <div class="banner-image w-100 vh-100 d-flex justify-content-center align-items-center">
   <div class="content text-center">

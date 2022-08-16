@@ -18,6 +18,12 @@
   span .tex-primary {
     color: #23305A;
   }
+
+  .display-3,
+  .text-primary,
+  .lead {
+    text-shadow: 5px 5px 5px #000;
+  }
 </style>
 <header>
   <div class="overlay"></div>

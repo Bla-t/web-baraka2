@@ -15,6 +15,10 @@ if (mysqli_connect_errno($dbh)) {
     /*filter: blur(8px);
       -webkit-filter: blur(8px);*/
   }
+
+  h1 {
+    text-shadow: 3px 3px 6px #000000;
+  }
 </style>
 <div class="banner-image w-100 vh-100 d-flex justify-content-center align-items-center">
   <div class="content text-center">

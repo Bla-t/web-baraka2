@@ -1,4 +1,9 @@
 <!-- footer -->
+<?php
+
+$isi = $this->model('footer_model')->givekontak();
+$isisos = $this->model('footer_model')->givesosmed();
+?>
 <footer class="tm-black-bg">
   <div class="container">
     <div class="row">
@@ -9,34 +14,34 @@
         <p class="tm-copyright-content">
           Kontak Marketing:
           <br />
-          - 081282898392
+          <?= ' - ' . $isi['marketing']; ?>
           <br />
-          <a class="foot-link" href="https://wa.me/+6281313724646" target="blank">
+          <a class="foot-link" href="https://wa.me/<?= $isi['wa_marketing']; ?>" target="blank">
             <i class="fa-brands fa-whatsapp">
             </i>
-            081313724646
+            <?= $isi['wa_marketing']; ?>
           </a>
         </p>
         <p class="tm-copyright-content">
           Layanan paket dari Jakarta ke Daerah:
           <br />
-          - 081282908302
+          - <?= $isi['daerah']; ?>
           <br />
-          <a href="https://wa.me/+6281313724646" target="blank" class="foot-link">
+          <a href="https://wa.me/<?= $isi['wa_daerah']; ?>" target="blank" class="foot-link">
             <i class="fa-brands fa-whatsapp">
             </i>
-            081313724646
+            <?= $isi['wa_daerah']; ?>
           </a>
         </p>
         <p class="tm-copyright-content">
           Layanan paket dari daerah ke Jakarta:
           <br />
-          - 081280443372
+          - <?= $isi['jkt']; ?>
           <br />
-          <a href="https://wa.me/+6281282908302" target="blank" class="foot-link">
+          <a href="https://wa.me/<?= $isi['wa_jkt']; ?>" target="blank" class="foot-link">
             <i class="fa-brands fa-whatsapp">
             </i>
-            081282908302
+            <?= $isi['wa_jkt']; ?>
           </a>
         </p>
       </div>
@@ -47,7 +52,7 @@
         <p class="tm-copyright-content">
           Jl. Raya Setu Jl. Sejahtera No.21, RW.1, Setu, Kec. Cipayung, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13880
           <br />
-          Telp: 021–84903838
+          Telp: <?= $isi['tlp_pusat']; ?>
         </p>
       </div>
       <div class="col-md-4">
@@ -55,16 +60,16 @@
           SOSIAL MEDIA :
         </h5>
         <div class="form-inline">
-          <a class="tm-copyright-content" href="https://www.facebook.com/profile.php?id=100005558985070" target="blank">
+          <a class="tm-copyright-content" href="<?= $isisos['marketing']; ?>" target="blank">
             <i class="fa-brands fa-facebook-square" style="font-size: 1.8em;"></i>
           </a>
-          <a class="tm-copyright-content" href="#">
+          <a class="tm-copyright-content" href="<?= $isisos['wa_marketing']; ?>" target="blank">
             <i class="fa-brands fa-instagram" style="font-size: 1.8em;"></i>
           </a>
-          <a class="tm-copyright-content" href="https://twitter.com/basartacoid" target="blank">
+          <a class="tm-copyright-content" href="<?= $isisos['daerah']; ?>" target="blank">
             <i class="fa-brands fa-twitter-square" style="font-size: 1.8em;"></i>
           </a>
-          <a class="tm-copyright-content" href="mailto:cs@basarta.co.id" target="blank">
+          <a class="tm-copyright-content" href="mailto:<?= $isisos['wa_daerah']; ?>" target="blank">
             <!-- <i class="fa fa-facebook-official" ></i> -->
             <i class="fa fa-envelope" style="font-size: 1.8em;"></i>
           </a>
