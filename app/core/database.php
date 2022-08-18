@@ -74,7 +74,7 @@ class database
     $this->mulai();
     return $this->stmt->fetch(PDO::FETCH_ASSOC);
   }
-
+  #cek berapa
   public function cekhitung()
   {
     $this->mulai();

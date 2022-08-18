@@ -62,8 +62,8 @@ if (mysqli_connect_errno($dbh)) {
 
         for (var i = 0; i < addressPoints.length; i++) {
           var a = addressPoints[i];
-          var title = a['extern'];
-          var marker = L.marker(new L.LatLng(a['latitude'], a['longitude']), {
+          var title = '<a href="' + a['ext'] + '" target="blank">' + a['namcab'] + '</a>';
+          var marker = L.marker(new L.LatLng(a['lat'], a['long']), {
             title: title
           });
           marker.bindPopup(title);
@@ -93,8 +93,7 @@ if (mysqli_connect_errno($dbh)) {
           <br>
           <h4 class="d-flex display-6 justify-content-center align-items-center fw-semibold text-warning"> INPUT KURANG</h4>
         <?php
-        }
-        if (mysqli_num_rows($result) == 0) {
+        } else if (mysqli_num_rows($result) == 0) {
           echo '<br>
           <h4 class="d-flex display-6 justify-content-center align-items-center fw-semibold text-warning"> ALAMAT/CABANG YANG DI CARI TIDAK ADA</h4>';
         } else {
@@ -148,14 +147,15 @@ if (mysqli_connect_errno($dbh)) {
                     ?>
                   </td>
                 </tr>
-            <?php
+              <?php
               }
-            }  ?>
+              ?>
             </tbody>
           </table>
-        <?php
+      <?php
+        }
       }
-        ?>
+      ?>
     </form>
   </div>
   <div class="container">
