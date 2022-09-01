@@ -112,13 +112,11 @@ $data_slide = mysqli_query($conn, "SELECT * FROM `slider` ") or die(mysqli_error
         <div class="content text-center">
           <img src="img/proffs.png" alt="jam" srcset="" width="62%"><br><br>
           <h3 style="color:#23305A;">
-            <input type="text" class="form-control form-control-sm" value="PROFESIONAL">
+            PROFESIONAL
           </h3>
         </div><br>
         <p class="content text-center">
-          <textarea name="" id="" rows="5" class="form-control">
-            Dengan komitmen profesional dengan pengalaman mengelola transportasi angkutan darat
-          </textarea>
+          Dengan komitmen profesional dengan pengalaman mengelola transportasi angkutan darat
         </p>
       </div>
     </div>
@@ -128,13 +126,11 @@ $data_slide = mysqli_query($conn, "SELECT * FROM `slider` ") or die(mysqli_error
           <img src="img/JAM.png" alt="jam" srcset="" width="35%">
           <br><br>
           <h3 style="color:#23305A;">
-            <input type="text" class="form-control form-control-sm" value="TEPAT WAKTU">
+            TEPAT WAKTU
           </h3>
         </div><br>
         <p class="content text-center">
-          <textarea name="" id="" rows="5" class="form-control">
-            Didukung peran manajemen yang handal dan profesional untuk menyajikan ketepatan waktu
-          </textarea>
+          Didukung peran manajemen yang handal dan profesional untuk menyajikan ketepatan waktu
         </p>
       </div>
     </div>
@@ -143,13 +139,11 @@ $data_slide = mysqli_query($conn, "SELECT * FROM `slider` ") or die(mysqli_error
         <div class="content text-center">
           <img src="img/cs.png" alt="jam" srcset="" width="33%"><br><br>
           <h3 style="color:#23305A;">
-            <input type="text" class="form-control form-control-sm" value="PENGALAMAN">
+            PENGALAMAN
           </h3>
         </div><br>
         <p class="content text-center">
-          <textarea name="" id="" rows="5" class="form-control">
-            Sumber Daya Manusia yang berpengalaman membuat PT. BARAKA SARANA TAMA berusaha selalu dapat menyajikan yang terbaik
-          </textarea>
+          Sumber Daya Manusia yang berpengalaman membuat PT. BARAKA SARANA TAMA berusaha selalu dapat menyajikan yang terbaik
         </p>
       </div>
     </div>
@@ -162,11 +156,9 @@ $data_slide = mysqli_query($conn, "SELECT * FROM `slider` ") or die(mysqli_error
   </div><br>
   <div class="row">
     <div class="col-md-6">
-      <textarea class="form-control mb-2" name="" id="" rows="10">
-        Pertumbuhan ekonomi Indonesia yang diikuti dengan pertumbuhan sektor industri di seluruh wilayah Indonesia, adalah suatu peluang besar bagi setiap perusahaan yang bergerak di bidang jasa tranportasi untuk berkiprah di sektor produk-produk hasil industri agar segera dapat dinikmati oleh masyarakat konsumen pada umumnya.  
-        Dengan komitmen profesional para pemegang saham yang telah berpengalaman mengelola transportasi angkutan darat yang sebelumnya telah berkiprah dalam jasa transportasi angkutan darat bersama PT. BARAKA SARANA TAMA diwilayah DKI Jakarta, Jawa Barat, Jawa Tengah, Jawa Timur, NTB, Sumatra dan Kalimantan.
-      </textarea>
-      <a class="btn btn-primary btn-sm" href="#">simpan</a>
+      Pertumbuhan ekonomi Indonesia yang diikuti dengan pertumbuhan sektor industri di seluruh wilayah Indonesia, adalah suatu peluang besar bagi setiap perusahaan yang bergerak di bidang jasa tranportasi untuk berkiprah di sektor produk-produk hasil industri agar segera dapat dinikmati oleh masyarakat konsumen pada umumnya.
+      Dengan komitmen profesional para pemegang saham yang telah berpengalaman mengelola transportasi angkutan darat yang sebelumnya telah berkiprah dalam jasa transportasi angkutan darat bersama PT. BARAKA SARANA TAMA diwilayah DKI Jakarta, Jawa Barat, Jawa Tengah, Jawa Timur, NTB, Sumatra dan Kalimantan.
+      <a class="btn btn-primary btn-sm" href="#">lanjut</a>
     </div>
     <div class="col-md-6">
       <img src="img/minibus-bst.png" alt="mobil" width="90%">

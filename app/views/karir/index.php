@@ -14,6 +14,43 @@
 </div>
 <div class="container my-5 d-grid gap-5">
   <div class="row">
+    <div class="col" style="background-color: #FFCD91;">
+      <img src="<?= BASEURL; ?>/img/logs.png" alt="low1" class="img d-flex justify-content-center">
+      <div class="d-flex justify-content-center mb-2">
+        <h1>LOWONGAN 1</h1>
+      </div>
+    </div>
+  </div>
+  <div class="container my-5 d-grid gap-5">
+    <div class="row">
+      <div class="col">
+        <a href="<?= BASEURL; ?>/karir_1" class="badge text-bg-primary">Primary</a>
+        <a href="#" class="badge text-bg-secondary">Secondary</a>
+        <a href="#" class="badge text-bg-success">Success</a>
+        <a href="#" class="badge text-bg-danger">Danger</a>
+        <a href="#" class="badge text-bg-warning">Warning</a>
+        <a href="#" class="badge text-bg-info">Info</a>
+        <a href="#" class="badge text-bg-warning">warning</a>
+        <a href="#" class="badge text-bg-dark">Dark</a>
+        <a href="#" class="badge text-bg-warning">warning</a>
+        <a href="#" class="badge text-bg-dark">Dark</a>
+        <a href="#" class="badge text-bg-warning">warning</a>
+        <a href="#" class="badge text-bg-dark">Dark</a>
+        <a href="#" class="badge text-bg-warning">warning</a>
+        <a href="#" class="badge text-bg-dark">Dark</a>
+        <a href="#" class="badge text-bg-warning">warning</a>
+        <a href="#" class="badge text-bg-dark">Dark</a>
+        <a href="#" class="badge text-bg-warning">warning</a>
+        <a href="#" class="badge text-bg-dark">Dark</a>
+        <a href="#" class="badge text-bg-warning">warning</a>
+        <a href="#" class="badge text-bg-dark">Dark</a>
+        <a href="#" class="badge text-bg-warning">warning</a>
+        <a href="#" class="badge text-bg-dark">Dark</a>
+      </div>
+    </div>
+  </div>
+  <!---
+  <div class="row">
     <div class="col d-flex mt-3">
       <a href="<?= BASEURL; ?>/karir_1" style="text-decoration: none;">
         <div class="card cart-kard text-center">
@@ -71,6 +108,6 @@
           <h3>LOWONGAN PEKERJAAN 2</h3>
         </div>
       </a>
-    </div> -->
-  </div>
+    </div>
+  </div>-->
 </div>

@@ -1,0 +1,3 @@
+RewriteEngine On # Turn on the rewriting engine
+RewriteRule ^Api/?$ Api.php [NC,L]
+RewriteRule ^Api/([0-9]+)/?$ Api.php?id=$1 [NC,L]

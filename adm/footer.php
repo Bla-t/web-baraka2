@@ -15,9 +15,11 @@
           Kontak Marketing:
           <br />
         <div class="form-inline">
-          <input type="text" name="" class="form-control form-control-sm" value="<?= $isi['marketing']; ?>"><br>
-          <input type="text" name="" class="form-control form-control-sm mb-2" value="<?= $isi['wa_marketing']; ?>">
-          <button class="btn btn-secondary btn-sm">simpan</button>
+          <form action="confg/crud.php?mode=marketing" method="POST">
+            <input type="text" name="no_marketing" class="form-control form-control-sm" value="<?= $isi['marketing']; ?>"><br>
+            <input type="text" name="wa_marketing" class="form-control form-control-sm mb-2" value="<?= $isi['wa_marketing']; ?>">
+            <button type="submit" class="btn btn-secondary btn-sm">simpan</button>
+          </form>
         </div>
         <br />
         </p>
@@ -25,20 +27,26 @@
           Layanan paket dari Jakarta ke Daerah:
           <br />
         <div class="form-inline">
-          <input type="text" name="" class="form-control form-control-sm" value="<?= $isi['daerah']; ?>">
-          <br>
-          <input type="text" name="" class="form-control form-control-sm mb-2" value="<?= $isi['wa_daerah']; ?>">
-          <button class="btn btn-secondary btn-sm">simpan</button>
+          <form action="confg/crud.php?mode=jktdaerah" method="POST">
+            <input type="text" name="no_jktdrh" class="form-control form-control-sm" value="<?= $isi['daerah']; ?>">
+            <br>
+            <input type="text" name="wa_jktdrh" class="form-control form-control-sm mb-2" value="<?= $isi['wa_daerah']; ?>">
+            <button class="btn btn-secondary btn-sm" type="submit">simpan</button>
+          </form>
         </div>
         <br />
         </p>
         <p class="tm-copyright-content">
           Layanan paket dari daerah ke Jakarta:
           <br />
-          <input type="text" name="" class="form-control form-control-sm" value="<?= $isi['jkt']; ?>">
-          <br />
-          <input type="text" name="" class="form-control form-control-sm mb-2" value="<?= $isi['wa_jkt']; ?>">
-          <button class="btn btn-secondary btn-sm">simpan</button>
+        <div class="form-inline">
+          <form action="confg/crud.php?mode=daerahjkt" method="POST">
+            <input type="text" name="no_drhjkt" class="form-control form-control-sm" value="<?= $isi['jkt']; ?>">
+            <br />
+            <input type="text" name="wa_drhjkt" class="form-control form-control-sm mb-2" value="<?= $isi['wa_jkt']; ?>">
+            <button type="submit" class="btn btn-secondary btn-sm mb-3">simpan</button>
+          </form>
+        </div>
         </p>
       </div>
       <div class="col-md-4">
@@ -46,12 +54,12 @@
           ALAMAT :
         </h5>
         <p class="tm-copyright-content">
-          <textarea name="" class="form-control" rows="5">
-            Jl. Raya Setu Jl. Sejahtera No.21, RW.1, Setu, Kec. Cipayung, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13880
-          </textarea>
+          Jl. Raya Setu Jl. Sejahtera No.21, RW.1, Setu, Kec. Cipayung, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13880
           <br />
-          <input type="text" class="form-control form-control-sm mb-2" value="<?= $isi['tlp_pusat']; ?>">
-          <button class="btn btn-secondary btn-sm">simpan</button>
+        <form action="confg/crud.php?mode=pst" method="POST">
+          <input type="text" name="pst" class="form-control form-control-sm mb-2" value="<?= $isi['tlp_pusat']; ?>">
+          <button type="submit" class="btn btn-secondary btn-sm ">simpan</button>
+        </form>
         </p>
       </div>
       <div class="col-md-4">
@@ -78,14 +86,18 @@
         </div>
         <div class="row">
           <div class="form-group">
-            <label class="form-label text-white" for="facebook">facebook :</label>
-            <input type="text" class="form-control form-control-sm" id="facebook" value="<?= $isisos['marketing']; ?>">
-            <label class="form-label text-white" for="facebook">instagram :</label>
-            <input type="text" class="form-control form-control-sm" id="facebook" value="<?= $isisos['wa_marketing']; ?>">
-            <label class="form-label text-white" for="facebook">twitter :</label>
-            <input type="text" class="form-control form-control-sm" id="facebook" value="<?= $isisos['daerah']; ?>">
-            <label class="form-label text-white" for="facebook">mail :</label>
-            <input type="text" class="form-control form-control-sm" id="facebook" value="<?= $isisos['wa_daerah']; ?>">
+            <form action="confg/crud.php?mode=medsos" method="POST">
+
+              <label class="form-label text-white" for="facebook">facebook :</label>
+              <input type="text" class="form-control form-control-sm" name="fb" id="facebook" value="<?= $isisos['marketing']; ?>">
+              <label class="form-label text-white" for="facebook">instagram :</label>
+              <input type="text" class="form-control form-control-sm" name="ig" id="facebook" value="<?= $isisos['wa_marketing']; ?>">
+              <label class="form-label text-white" for="facebook">twitter :</label>
+              <input type="text" class="form-control form-control-sm" name="twtr" id="facebook" value="<?= $isisos['daerah']; ?>">
+              <label class="form-label text-white" for="facebook">mail :</label>
+              <input type="text" class="form-control form-control-sm mb-2" name="email" id="facebook" value="<?= $isisos['wa_daerah']; ?>">
+              <button type="submit" class="btn btn-secondary btn-sm">simpan</button>
+            </form>
           </div>
         </div>
       </div>
@@ -98,8 +110,8 @@
   </div>
 </footer>
 <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="<?= BASEURL; ?>/js/templatemo-script.js"></script>
-<script src="<?= $BASEURL; ?> /js/cabang.js"></script>
+<script type="text/javascript" src="js/templatemo-script.js"></script>
+<script src="js/cabang.js"></script>
 <script type="text/javascript">
   var nav = document.querySelector('nav')
 

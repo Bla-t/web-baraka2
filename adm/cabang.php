@@ -4,6 +4,8 @@ include "header.php";
 if (!$conn) {
   echo "Failed to connect to MySQL: " . mysqli_connect_error($conn);
 }
+$val_map = mysqli_query($conn, "SELECT * FROM `latlong`") or die(mysqli_error($conn));
+$mapvalue = mysqli_fetch_all($val_map);
 ?>
 <!-- Banner Image  -->
 <style>
@@ -55,13 +57,13 @@ if (!$conn) {
 
         map.addControl(controlSearch);
         /////////////////////////
-        // var addressPoints =
-        <?= json_encode($data['map_data']); ?>;
+        var addressPoints =
+          <?= json_encode($mapvalue); ?>;
 
         for (var i = 0; i < addressPoints.length; i++) {
           var a = addressPoints[i];
-          var title = '<a href="' + a['ext'] + '" target="blank">' + a['namcab'] + '</a>';
-          var marker = L.marker(new L.LatLng(a['lat'], a['long']), {
+          var title = '<a href="' + a[4] + '" target="blank">' + a[1] + '</a>';
+          var marker = L.marker(new L.LatLng(a[2], a[3]), {
             title: title
           });
           marker.bindPopup(title);

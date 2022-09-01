@@ -40,6 +40,10 @@
 			position: relative;
 		}
 
+		a {
+			margin: auto;
+		}
+
 		.card {
 			background-color: transparent;
 			border-width: 0.2rem;
@@ -112,9 +116,9 @@
 						<input class="form-control" type="Password" name="pass" placeholder="Password" required>
 					</div>
 					<div class="form-row">
-						<label></label>
 						<div class="col-md-6 offset-md-3">
-							<button class="btn btn-dark btn-block" id=""> Log in</button>
+							<button type="submit" class="btn btn-dark btn-block btn-sm mb-2"> Log in</button> &emsp;&nbsp;
+							<a class="text-white" href="<?= BASEURL; ?>" style="text-decoration: none;"> halaman web</a>
 						</div>
 					</div>
 				</form>
