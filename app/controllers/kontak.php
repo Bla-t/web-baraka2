@@ -6,8 +6,9 @@ class kontak extends Controller
     $data['judul'] = 'BST | KONTAK';
     $data['kepala'] = '';
     $data['kepala2'] = '';
+    $data['footer'] = '<script src="' . BASEURL . '/app/js/nav.js"></script>';
     $this->view('header', $data);
     $this->view('kontak/index');
-    $this->view('footer');
+    $this->view('footer', $data);
   }
 }

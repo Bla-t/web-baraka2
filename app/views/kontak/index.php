@@ -1,6 +1,6 @@
 <style>
   .banner-image {
-    background-image: url('<?= BASEURL; ?>/img/kontak.jpg');
+    background-image: url('<?= BASEURL; ?>/app/img/kontak.jpg');
     /* background-color: coral; */
     background-size: cover;
     /*filter: blur(8px);
@@ -15,6 +15,7 @@
 $kontak = $this->model('kontak_model')->givekontak();
 $cs = $this->model('kontak_model')->givesosmed();
 ?>
+
 <div class="banner-image w-100 vh-100 d-flex justify-content-center align-items-center">
   <div class="content text-center">
     <h1>Pelayanan yang RESPONSIF</h1>

@@ -80,4 +80,9 @@ class database
     $this->mulai();
     return $this->stmt->rowCount();
   }
+  public function cekkolom()
+  {
+    $this->mulai();
+    return $this->stmt->fetchColumn();
+  }
 }

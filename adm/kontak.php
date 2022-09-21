@@ -52,8 +52,8 @@ $cs = $isisos
           </h3>
         </div><br>
         <p class="content text-center">
-          Telepon - (<?= $kontak['tlp_pusat']; ?>) <br>
-          WhatsApp - (<?= $kontak['daerah']; ?>)
+          Telepon - <?= $kontak['tlp_pusat']; ?> <br>
+          WhatsApp - <?= $kontak['daerah']; ?>
         </p>
       </div>
     </div>
@@ -66,7 +66,7 @@ $cs = $isisos
           </h3>
         </div><br>
         <p class="content text-center">
-          <a href="mailto:<?= $cs['wa_daerah']; ?>" style="text-decoration:none;"><?= $cs['wa_daerah']; ?></a>
+          <a href="mailto:<?= $cs['wa_daerah']; ?>" style="text-decoration:none;"><?= substr($cs['wa_daerah'], 7); ?></a>
           <a href="mailto:<?= $cs['jkt']; ?>" style="text-decoration:none;"><?= $cs['jkt']; ?></a>
         </p>
       </div>

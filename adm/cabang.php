@@ -1,19 +1,20 @@
 <?php
 include "header.php";
 // Check connection
-if (!$conn) {
-  echo "Failed to connect to MySQL: " . mysqli_connect_error($conn);
-}
+// if (!$conn) {
+//   echo "Failed to connect to MySQL: " . mysqli_connect_error($conn);
+// }
 $val_map = mysqli_query($conn, "SELECT * FROM `latlong`") or die(mysqli_error($conn));
 $mapvalue = mysqli_fetch_all($val_map);
+// var_dump($mapvalue);
 ?>
 <!-- Banner Image  -->
 <style>
   .banner-image {
     background-image: url('img/background1.jpeg');
     background-size: cover;
-    /*filter: blur(8px);
-      -webkit-filter: blur(8px);*/
+    /* filter: blur(8px);
+    -webkit-filter: blur(8px); */
   }
 
   h1 {
@@ -58,7 +59,7 @@ $mapvalue = mysqli_fetch_all($val_map);
         map.addControl(controlSearch);
         /////////////////////////
         var addressPoints =
-          <?= json_encode($mapvalue); ?>;
+          <?= json_encode($mapvalue); ?>
 
         for (var i = 0; i < addressPoints.length; i++) {
           var a = addressPoints[i];
@@ -82,7 +83,7 @@ $mapvalue = mysqli_fetch_all($val_map);
       if (isset($_POST['cabs'])) {
 
         $param = $_POST['cabs'];
-        $result = mysqli_query($conn, "SELECT * FROM `isi_cabang` WHERE `alamat` LIKE '%$param%' OR `nama_cabang` LIKE '%$param'") or die(mysqli_error($conn));
+        $result = mysqli_query($conn, "SELECT * FROM `isi_cabang` WHERE `alamat` LIKE '%$param%' ") or die(mysqli_error($conn));
         if ($param == ' ') {
       ?>
           <br>
@@ -181,7 +182,7 @@ $mapvalue = mysqli_fetch_all($val_map);
             </div>
             <div class="accordion-body">
               <?php
-              $isi = mysqli_query($conn, "SELECT * FROM `isi_cabang` WHERE `kowil` = '$kode'") or die(mysqli_error($conn));
+              $data_cabang = mysqli_query($conn, "SELECT * FROM `isi_cabang` WHERE `kowil` = '$kode'") or die(mysqli_error($conn));
               $nom = 1;
               ?>
               <div class="col table-responsive" style="height: 400px;">
@@ -199,7 +200,7 @@ $mapvalue = mysqli_fetch_all($val_map);
                   </thead>
                   <tbody id="isi_<?= $tbl++; ?>">
                     <?php
-                    while ($isicabang = mysqli_fetch_assoc($isi)) {
+                    while ($isicabang = mysqli_fetch_assoc($data_cabang)) {
                     ?>
                       <tr>
                         <td><?= $nom++; ?>.</td>
@@ -246,14 +247,24 @@ $mapvalue = mysqli_fetch_all($val_map);
       ?>
     </div>
     <input type="hidden" value="<?= $jml['total']; ?>" id="jml" readonly disabled>
+    <!-- Modal -->
+
   </div>
-  <!--<div class="p-5 border">
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-      Necessitatibus veniam ipsa earum quibusdam, atque ipsum error maiores
-      natus iusto fugit id saepe neque rerum magni laudantium accusantium
-      dolorem numquam quasi.
-    </p>
-  </div>-->
+  <script>
+    $(document).ready(function() {
+      let ass = document.getElementById("jml");
+      if (ass) {
+        let aas = ass.value;
+        for (let i = 0; i < aas; i++) {
+          $("#srch_" + i).on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#isi_" + i + " tr").filter(function() {
+              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+          });
+        }
+      }
+    });
+  </script>
 </div>
 <?php include "footer.php"; ?>

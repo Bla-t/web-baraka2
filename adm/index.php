@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<?php define('BASEURL', '../'); ?>
 
 <head>
 	<title>Form Admin</title>
@@ -24,12 +25,17 @@
 		.lab,
 		.display-4 {
 			color: cyan;
-			-webkit-text-stroke-width: 0.5px;
+			-webkit-text-stroke-width: 0.3px;
 			-webkit-text-stroke-color: white;
 		}
 
 		.btn-dark {
 			background-color: #E16A00;
+		}
+
+		.col {
+			align-items: center;
+			text-align: center;
 		}
 
 		body {
@@ -41,14 +47,24 @@
 		}
 
 		a {
+			border-top: 1px solid cyan;
+			padding-top: 5px;
 			margin: auto;
+			color: azure;
+			text-decoration: none;
+
+		}
+
+		a:hover {
+			text-decoration: none;
+			color: aquamarine;
 		}
 
 		.card {
 			background-color: transparent;
 			border-width: 0.2rem;
 			border-color: #A3E4D7;
-			/* -webkit-animation: body 1s ease-out; */
+			-webkit-animation: body 1s ease-out;
 		}
 
 		@keyframes body {
@@ -115,11 +131,12 @@
 						<label class="lab">Password :</label>
 						<input class="form-control" type="Password" name="pass" placeholder="Password" required>
 					</div>
-					<div class="form-row">
-						<div class="col-md-6 offset-md-3">
-							<button type="submit" class="btn btn-dark btn-block btn-sm mb-2"> Log in</button> &emsp;&nbsp;
-							<a class="text-white" href="<?= BASEURL; ?>" style="text-decoration: none;"> halaman web</a>
-						</div>
+					<div class="row">
+						<div class="col-md-6 offset-3">
+							<button type="submit" class="btn btn-dark btn-block btn-sm mb-2"> Log in</button>
+						</div><br>
+						<span></span>
+						<a href="<?= BASEURL; ?>">kembali ke halaman web</a>
 					</div>
 				</form>
 			</div>

@@ -4,6 +4,7 @@
 $isi = $this->model('footer_model')->givekontak();
 $isisos = $this->model('footer_model')->givesosmed();
 ?>
+<img class="bgrs" src="<?= BASEURL; ?>/app/img/footer.png" alt="bgfooter" width="100">
 <footer class="tm-black-bg">
   <div class="container">
     <div class="row">
@@ -87,37 +88,12 @@ $isisos = $this->model('footer_model')->givesosmed();
   </div>
 </footer>
 <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="<?= BASEURL; ?>/js/templatemo-script.js"></script>
-<script src="<?= $BASEURL; ?> /js/cabang.js"></script>
-<script type="text/javascript">
-  var nav = document.querySelector('nav')
-
-  window.addEventListener('scroll', function() {
-    if (window.pageYOffset > 100) {
-      nav.classList.add('bg-primary', 'shadow')
-    } else {
-      nav.classList.remove('bg-primary', 'shadow')
-    }
-  })
-  //map.addLayer(markers);
-  $(document).ready(function() {
-    let ass = document.getElementById("jml");
-    if (ass) {
-      let aas = ass.value;
-      for (let i = 0; i < aas; i++) {
-        $("#srch_" + i).on("keyup", function() {
-          var value = $(this).val().toLowerCase();
-          $("#isi_" + i + " tr").filter(function() {
-            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-          });
-        });
-      }
-    }
-  });
-</script>
+<script type="text/javascript" src="<?= BASEURL; ?>/app/js/templatemo-script.js"></script>
+<script src="<?= BASEURL; ?> /app/js/cabang.js"></script>
+<?= $data['footer']; ?>
 <div class="konten-samping">
   <a href="https://wa.me/+6281282908302" target="blank" class=" wangsaf">
-    <img src="<?= BASEURL; ?>/img/wangsaf.png" alt="wangsaf" width="85">
+    <img src="<?= BASEURL; ?>/app/img/wangsaf.png" alt="wangsaf" width="85">
   </a>
 </div>
 </body>

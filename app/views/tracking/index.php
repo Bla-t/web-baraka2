@@ -1,7 +1,7 @@
 <!-- Banner Image  -->
 <style>
   .banner-image {
-    background-image: url('<?= BASEURL; ?>/img/background2.jpeg');
+    background-image: url('<?= BASEURL; ?>/app/img/background2.jpeg');
     background-size: cover;
     /*filter: blur(8px);
       -webkit-filter: blur(8px);*/

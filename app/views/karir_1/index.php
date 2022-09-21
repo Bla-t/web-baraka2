@@ -2,13 +2,17 @@
   .banner-image {
     background-color: darkolivegreen;
   }
+
+  .secti {
+    padding-top: 3rem;
+  }
 </style>
-<div class="banner-image w-100 vh-100 d-flex justify-content-center align-items-center">
+<!-- <div class="banner-image w-100 vh-100 d-flex justify-content-center align-items-center">
   <div class="content text-center">
     <h1 class="text-dark">Lowongan Pekerjaan</h1>
   </div>
-</div>
-<div class="container my-5 d-grid gap-5">
+</div> -->
+<div class="container my-5 d-grid gap-5 secti">
   <div class="row">
     <div class="col" style="background-color: #FFCD91;">
       <img src="<?= BASEURL; ?>/img/logs.png" alt="low1" class="img d-flex justify-content-center">
@@ -25,4 +29,8 @@
       <strong>Lorem ipsum dolor sit</strong>,<br> amet consectetur adipisicing elit. Accusantium inventore fuga ea animi. Corporis voluptatem totam beatae eum recusandae perferendis quam, illum labore, quo sint odio quidem ipsa? Qui, nostrum?,<br><br>
     </p>
   </div>
+  <script>
+    var nav = document.querySelector('nav')
+    nav.classList.add('bg-primary', 'shadow')
+  </script>
 </div>

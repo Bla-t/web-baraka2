@@ -28,7 +28,7 @@
 <header>
   <div class="overlay"></div>
   <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-    <source src="<?= BASEURL; ?>/img/homevideo.mp4" type="video/mp4">
+    <source src="<?= BASEURL; ?>/app/img/homevideo.mp4" type="video/mp4">
   </video>
   <div class="container h-100">
     <div class="d-flex h-100 text-left align-items-center">
@@ -79,7 +79,7 @@
             }
           ?>
             <div id="<?= $a++; ?>" class="carousel-item <?= $class; ?>" data-bs-interval="20000">
-              <img src="<?= BASEURL . '/img/slideimg/' . $slide['gambr']  ?>" class="d-block w-100" alt="<?= $slide['gambr']; ?>">
+              <img src="<?= BASEURL . '/app/img/slideimg/' . $slide['gambr']  ?>" class="d-block w-100" alt="<?= $slide['gambr']; ?>">
             </div>
           <?php
           }
@@ -105,7 +105,7 @@
     <div class="col">
       <div class="p-5">
         <div class="content text-center">
-          <img src="<?= BASEURL; ?>/img/proffs.png" alt="jam" srcset="" width="62%"><br><br>
+          <img src="<?= BASEURL; ?>/app/img/proffs.png" alt="jam" srcset="" width="62%"><br><br>
           <h3 style="color:#23305A;">
             PROFESIONAL
           </h3>
@@ -118,7 +118,7 @@
     <div class="col">
       <div class="p-5">
         <div class="content text-center">
-          <img src="<?= BASEURL; ?>/img/JAM.png" alt="jam" srcset="" width="35%">
+          <img src="<?= BASEURL; ?>/app/img/JAM.png" alt="jam" srcset="" width="35%">
           <br><br>
           <h3 style="color:#23305A;">
             TEPAT WAKTU
@@ -132,7 +132,7 @@
     <div class="col">
       <div class="p-5">
         <div class="content text-center">
-          <img src="<?= BASEURL; ?>/img/cs.png" alt="jam" srcset="" width="33%"><br><br>
+          <img src="<?= BASEURL; ?>/app/img/cs.png" alt="jam" srcset="" width="33%"><br><br>
           <h3 style="color:#23305A;">
             PENGALAMAN
           </h3>
@@ -157,7 +157,7 @@
       <a class="btn btn-primary btn-sm" href="<?= BASEURL; ?>/tentang">Lanjut</a>
     </div>
     <div class="col-md-6">
-      <img src="<?= BASEURL; ?>/img/minibus-bst.png" alt="mobil" width="90%">
+      <img src="<?= BASEURL; ?>/app/img/minibus-bst.png" alt="mobil" width="90%">
     </div>
   </div>
   <div class="row">

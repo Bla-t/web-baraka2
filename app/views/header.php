@@ -4,18 +4,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="shortcut icon" type="image/png" href="<?= BASEURL; ?>/img/logdom.png" />
+  <link rel="shortcut icon" type="image/png" href="<?= BASEURL; ?>/app/img/logdom.png" />
   <title><?= $data['judul']; ?></title>
   <?= $data['kepala']; ?>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="<?= BASEURL; ?> /css/templatemo-style.css" />
+  <link rel="stylesheet" href="<?= BASEURL; ?> /app/css/templatemo-style.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <script src="<?= BASEURL; ?>/js/jquery3.6.js"></script>
+  <script src="<?= BASEURL; ?>/app/js/jquery3.6.js"></script>
   <?= $data['kepala2']; ?>
-  <link rel="stylesheet" href="<?= BASEURL; ?>/css/MarkerCluster.css" />
-  <link rel="stylesheet" href="<?= BASEURL; ?>/css/MarkerCluster.Default.css" />
+  <link rel="stylesheet" href="<?= BASEURL; ?>/app/css/MarkerCluster.css" />
+  <link rel="stylesheet" href="<?= BASEURL; ?>/app/css/MarkerCluster.Default.css" />
 
   <style>
     .list-group-item {
@@ -48,6 +48,11 @@
       background-color: #233b53;
       color: cornsilk;
     }
+
+    .bgrs {
+      width: 100% !important;
+      opacity: 35%;
+    }
   </style>
 </head>
 
@@ -55,7 +60,7 @@
   <!-- Navbar  -->
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
     <div class="container">
-      <a class="navbar-brand" href="<?= BASEURL; ?>"><img src="<?= BASEURL; ?>/img/logobst2.png" alt="logo" width="100"></a>
+      <a class="navbar-brand" href="<?= BASEURL; ?>"><img src="<?= BASEURL; ?>/app/img/logobst2.png" alt="logo" width="100"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>

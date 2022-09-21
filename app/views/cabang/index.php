@@ -10,7 +10,7 @@ if (mysqli_connect_errno($dbh)) {
 ?>
 <style>
   .banner-image {
-    background-image: url('<?= BASEURL; ?>/img/background1.jpeg');
+    background-image: url('<?= BASEURL; ?>/app/img/background1.jpeg');
     background-size: cover;
     /*filter: blur(8px);
       -webkit-filter: blur(8px);*/

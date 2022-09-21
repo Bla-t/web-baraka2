@@ -4,16 +4,20 @@ $mhs = new Api();
 $request_method = $_SERVER["REQUEST_METHOD"];
 switch ($request_method) {
 	case 'GET':
+		//get data tarif
 		if (!empty($_GET["dari"])) {
 			$dari = $_GET["dari"];
 			$tujuan = $_GET["tujuan"];
 			$mhs->get_tarif($dari, $tujuan);
-		} else if (isset($_GET['area'])) {
+		} // data area
+		else if (isset($_GET['area'])) {
 			$mhs->get_area();
-		} else if (!empty($_GET['isi'])) {
+		} // data dari
+		else if (!empty($_GET['isi'])) {
 			$dari = $_GET['isi'];
 			$mhs->get_dari($dari);
-		} else if (!empty($_GET['tujuan'])) {
+		} // data tujuan
+		else if (!empty($_GET['tujuan'])) {
 			$tujuan = $_GET['tujuan'];
 			$mhs->get_tujuan($tujuan);
 		}
