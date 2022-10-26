@@ -65,12 +65,9 @@
             <i class="fa-brands fa-twitter-square" style="font-size: 1.8em;"></i>
           </a>
           <a class="tm-copyright-content" href="mailto:<?= $isisos['wa_daerah']; ?>" target="blank">
-            <!-- <i class="fa fa-facebook-official" ></i> -->
+            <i class="fa fa-facebook-official"></i>
             <i class="fa fa-envelope" style="font-size: 1.8em;"></i>
           </a>
-          <!-- <a class="tm-copyright-content" href="https://wa.me/+3197005033513" target="blank"> -->
-          <!-- <i class="fa fa-whatsapp" style="font-size: 36px;"></i> -->
-          <!-- </a> -->
         </div>
       </div>
     </div>
@@ -81,7 +78,7 @@
     </p>
   </div>
 </footer>
-<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script> -->
 <script type="text/javascript" src="js/templatemo-script.js"></script>
 <script type="text/javascript">
   var nav = document.querySelector('nav')
@@ -99,11 +96,11 @@
     $('#myInput').trigger('focus')
   });
 </script>
-<div class="konten-samping">
+<!-- <div class="konten-samping">
   <a href="https://wa.me/+6281282908302" target="blank" class=" wangsaf">
     <img src="img/wangsaf.png" alt="wangsaf" width="85">
   </a>
-</div>
+</div> -->
 </body>
 
 </html>

@@ -15,7 +15,7 @@ class karir extends Controller
   }
   public function cari()
   {
-    $data['judul'] = 'BST | Lowongan Pekerjaan';
+    $data['judul'] = 'BST | Cari Lowongan Pekerjaan';
     $data['karir'] = $this->model('karir_model')->getkarir();
     $data['jumlah'] = $this->model('karir_model')->spesifickarir();
     $data['kepala'] = '';

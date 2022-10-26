@@ -14,6 +14,11 @@ include 'header.php';
     margin-top: 5rem;
   }
 
+  .jumbotron {
+    margin-top: 100px;
+    text-align: center;
+  }
+
   /* .banner-image {
     background-color: darkslategrey;
   } */
@@ -24,7 +29,13 @@ include 'header.php';
     <h1></h1>
   </div>
 </div> -->
-<div class="container my-5 d-grid gap-5 ">
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">SETTING DATA FOOTER</h1>
+    <p class="lead">.</p>
+  </div>
+</div>
+<div class="container my-1 d-grid">
   <div class="container body">
     <div class="row">
       <div class="col-md-4">

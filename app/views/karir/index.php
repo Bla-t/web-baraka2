@@ -24,16 +24,17 @@
   </div>
   <form action="<?= BASEURL; ?>/karir/cari" method="POST">
     <div class="input-group">
-      <select name="byklass" id="byklass" class="form-control">
-        <option value="" disabled selected></option>
+      <!--<select name="byklass" id="byklass" class="form-control">
+        <option value="" disabled selected>Cari</option>
         <?php
-        foreach ($data['karir'] as $klass) {
+        /* foreach ($data['karir'] as $klass) {
         ?>
           <option value="<?= $klass['klass']; ?>"><?= $klass['klass']; ?></option>
         <?php
-        }
+        }*/
         ?>
-      </select>
+      </select>--->
+      <input class="form-control" type="text" name="byklass" placeholder="Cari">
       <div class="input-group-append">
         <button class="btn btn-warning" type="submit">cari</button>
       </div>

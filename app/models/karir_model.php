@@ -24,7 +24,7 @@ class karir_model
   public function spesifickarir()
   {
     $tipe = $_POST['byklass'];
-    $query = ("SELECT * FROM job_desk WHERE kelas LIKE :keyword");
+    $query = ("SELECT * FROM $this->tbl2 WHERE `kelas` like :keyword");
     $this->db->query($query);
     $this->db->bind('keyword', "%$tipe%");
     return $this->db->semua();

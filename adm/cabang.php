@@ -123,12 +123,12 @@ $mapvalue = mysqli_fetch_all($val_map);
                   <td><?= $hasil['alamat']; ?></td>
                   <td><?= $hasil['no_tlp']; ?></td>
                   <?php
-                  if (empty($hasil['recieve'])) {
+                  if ($hasil['recieve'] == 'n') {
                     $isirec = '<i class="fas fa-times" style="color:#F46000;"></i>';
                   } else {
                     $isirec = '<i class="fas fa-check" style="color:#1FE100;"></i>';
                   }
-                  if (empty($hasil['delivere'])) {
+                  if ($hasil['delivere'] == 'n') {
                     $isidel = '<i class="fas fa-times" style="color:#F46000;"></i>';
                   } else {
                     $isidel = '<i class="fas fa-check" style="color:#1FE100;"></i>';
@@ -208,12 +208,12 @@ $mapvalue = mysqli_fetch_all($val_map);
                         <td><?= $isicabang['alamat']; ?></td>
                         <td><?= $isicabang['no_tlp']; ?></td>
                         <?php
-                        if (empty($isicabang['recieve'])) {
+                        if ($isicabang['recieve'] == 'n') {
                           $isirec = '<i class="fas fa-times" style="color:#F46000;"></i>';
                         } else {
                           $isirec = '<i class="fas fa-check" style="color:#1FE100;"></i>';
                         }
-                        if (empty($isicabang['delivere'])) {
+                        if ($isicabang['delivere'] == 'n') {
                           $isidel = '<i class="fas fa-times" style="color:#F46000;"></i>';
                         } else {
                           $isidel = '<i class="fas fa-check" style="color:#1FE100;"></i>';

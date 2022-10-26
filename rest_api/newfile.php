@@ -1,8 +1,9 @@
 <?php
-error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
+// error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
 // $filename = 'abc';
 // $createfile = fopen('file/' . $filename . '.txt', 'x');
-$filename = 'file/def.txt';
+$log_directory = 'file';
+$filename = 'file/' . $_GET['files'];
 $fileopen = fopen($filename, 'r+');
 if (isset($_GET['yes'])) {
   echo '<p>rubah sukses</p>';
@@ -12,15 +13,20 @@ if (isset($_GET['yes'])) {
   echo '<p>errrr</p>';
 }
 $isifile = fread($fileopen, filesize($filename));
-fclose($filename);
-foreach (glob($log_directory . 'file/*.*') as $file) {
+fclose($fileopen);
+foreach (glob($log_directory . '/*.*') as $itsfile) {
+  $file = substr($itsfile, 5);
 ?>
-  <a href="<?= $file; ?>"><?= substr($file, 5); ?></a><br>
+  <a href="newfile.php?files=<?= $file; ?>"><?= $file; ?></a>
+  <br>
 <?php
 } ?>
 <br>
+<br>
+<br>
 <div>
   <form action="" method="POST">
+    <input type="hidden" value="<?= $_GET['files']; ?>" name="fi">
     <textarea name="content" id="cont" cols="100" rows="20"><?= $isifile; ?></textarea>
     <button type="submit" name="submit">simpan</button>
     <input type="text" value="" name="newfile">
@@ -36,10 +42,10 @@ if (isset($_POST['submit'])) {
   $file_name = fopen($filename, 'w');
   $content = $_POST['content'];
   fwrite($file_name, $content);
-  header('location:newfile.php?yes');
+  header('location:newfile.php?yes&&files=' . $_POST['fi']);
 } else if (isset($_POST['submit2'])) {
-  $filename = $_POST['newfile'];
-  $createfile = fopen('file/' . $filename . '.txt', 'x+');
-  header('location:newfile.php?file');
+  $filename = $_POST['newfile'] . '.txt';
+  $createfile = fopen('file/' . $filename, 'x+');
+  header('location:newfile.php?file&&files=' . $filename);
 }
 ?>
