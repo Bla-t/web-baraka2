@@ -11,7 +11,6 @@ class cabang extends Controller
     $data['kepala2'] = '      
       <script src="' . BASEURL . '/app/js/leaflet.markercluster-src.js"></script>
       <script src="' . BASEURL . '/app/js/leaflet-search.js"></script>
-      <!-- <script src="' . BASEURL . '/app/js/BST.js"></script> -->        
       <link rel="stylesheet" href="' . BASEURL . '/app/css/leaflet-search.css" />
     ';
     $data['map_data'] = $this->model('cabang_model')->getlatlong();
@@ -20,9 +19,9 @@ class cabang extends Controller
     $this->view('cabang/index', $data);
     $this->view('footer', $data);
   }
-  public function map()
-  {
-    $data['map_data'] = $this->model('cabang_model')->getlatlong();
-    $this->view('cabang/map', $data);
-  }
+  // public function map()
+  // {
+  //   $data['map_data'] = $this->model('cabang_model')->getlatlong();
+  //   $this->view('cabang/map', $data);
+  // }
 }

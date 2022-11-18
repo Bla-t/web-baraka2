@@ -22,8 +22,8 @@ if (mysqli_connect_errno($dbh)) {
 </style>
 <div class="banner-image w-100 vh-100 d-flex justify-content-center align-items-center">
   <div class="content text-center">
-    <h1>KAMI DIAM</h1>
-    <h1>DAN ADA DI DEKAT ANDA</h1>
+    <h1>CARI CABANG, AGEN</h1>
+    <h1>TERDEKAT DENGAN ANDA</h1>
   </div>
 </div>
 
@@ -82,8 +82,8 @@ if (mysqli_connect_errno($dbh)) {
       if (isset($_POST['cabs'])) {
 
         $param = $_POST['cabs'];
-        $result = mysqli_query($dbh, "SELECT * FROM `isi_cabang` WHERE `alamat` LIKE '%$param%' OR `nama_cabang` LIKE '%$param'") or die(mysqli_error($dbh));
-        if ($param == ' ') {
+        $result = mysqli_query($dbh, "SELECT * FROM `isi_cabang` WHERE `alamat` LIKE '%$param%' OR `nama_cabang` LIKE '%$param%'") or die(mysqli_error($dbh));
+        if ($param == '') {
       ?>
           <br>
           <h4 class="d-flex display-6 justify-content-center align-items-center fw-semibold text-warning"> INPUT KOSONG</h4>
@@ -122,12 +122,12 @@ if (mysqli_connect_errno($dbh)) {
                   <td><?= $hasil['alamat']; ?></td>
                   <td><?= $hasil['no_tlp']; ?></td>
                   <?php
-                  if (empty($hasil['recieve'])) {
+                  if ($hasil['recieve'] == 'n') {
                     $isirec = '<i class="fas fa-times" style="color:#F46000;"></i>';
                   } else {
                     $isirec = '<i class="fas fa-check" style="color:#1FE100;"></i>';
                   }
-                  if (empty($hasil['delivere'])) {
+                  if ($hasil['delivere'] == 'n') {
                     $isidel = '<i class="fas fa-times" style="color:#F46000;"></i>';
                   } else {
                     $isidel = '<i class="fas fa-check" style="color:#1FE100;"></i>';
@@ -137,7 +137,7 @@ if (mysqli_connect_errno($dbh)) {
                   <td><?= $isidel; ?></td>
                   <td>
                     <?php
-                    if (empty($hasil['map'])) {
+                    if ($hasil['map'] == '-') {
                       echo '<i class="fas fa-earth-asia" style="color:#878787 ;" disabled></i>';
                     } else {
                       echo '<a href="' . $hasil['map'] . '" target="blank" style="color:#01BF57 ;">
@@ -207,12 +207,12 @@ if (mysqli_connect_errno($dbh)) {
                         <td><?= $isicabang['alamat']; ?></td>
                         <td><?= $isicabang['no_tlp']; ?></td>
                         <?php
-                        if (empty($isicabang['recieve'])) {
+                        if ($isicabang['recieve'] == 'n') {
                           $isirec = '<i class="fas fa-times" style="color:#F46000;"></i>';
                         } else {
                           $isirec = '<i class="fas fa-check" style="color:#1FE100;"></i>';
                         }
-                        if (empty($isicabang['delivere'])) {
+                        if ($isicabang['delivere'] == 'n') {
                           $isidel = '<i class="fas fa-times" style="color:#F46000;"></i>';
                         } else {
                           $isidel = '<i class="fas fa-check" style="color:#1FE100;"></i>';
@@ -222,7 +222,7 @@ if (mysqli_connect_errno($dbh)) {
                         <td><?= $isidel; ?></td>
                         <td>
                           <?php
-                          if (empty($isicabang['map'])) {
+                          if ($isicabang['map'] == '-') {
                             echo '<i class="fas fa-earth-asia" style="color:#878787 ;" disabled></i>';
                           } else {
                             echo '<a href="' . $isicabang['map'] . '" target="blank" style="color:#01BF57 ;">

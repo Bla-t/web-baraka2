@@ -1,5 +1,10 @@
+<style>
+  * {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+</style>
 <?php
-// error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
+error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
 // $filename = 'abc';
 // $createfile = fopen('file/' . $filename . '.txt', 'x');
 $log_directory = 'file';
@@ -9,9 +14,9 @@ if (isset($_GET['yes'])) {
   echo '<p>rubah sukses</p>';
 } else if (isset($_GET['file'])) {
   echo '<p>tambah sukses</p>';
-} else {
+} /*else {
   echo '<p>errrr</p>';
-}
+}*/
 $isifile = fread($fileopen, filesize($filename));
 fclose($fileopen);
 foreach (glob($log_directory . '/*.*') as $itsfile) {
@@ -28,13 +33,15 @@ foreach (glob($log_directory . '/*.*') as $itsfile) {
   <form action="" method="POST">
     <input type="hidden" value="<?= $_GET['files']; ?>" name="fi">
     <textarea name="content" id="cont" cols="100" rows="20"><?= $isifile; ?></textarea>
-    <button type="submit" name="submit">simpan</button>
-    <input type="text" value="" name="newfile">
-    <button type="submit" name="submit2">simpan text</button>
+    <button type="submit" name="submit" class="btn">simpan</button>
+  </form>
+  <form action="" method="POST">
+    <input type="text" value="" name="newfile" required>
+    <button class="btn" type="submit" name="submit2">simpan text</button>
   </form>
 </div>
 <div>
-  <p style="font-size: 1rem; font-family:roboto;"><?= $isifile; ?></p>
+  <p style="font-size: 1rem; font-family:roboto, sans-serif;"><?= $isifile; ?></p>
 </div>
 
 <?php
@@ -47,5 +54,7 @@ if (isset($_POST['submit'])) {
   $filename = $_POST['newfile'] . '.txt';
   $createfile = fopen('file/' . $filename, 'x+');
   header('location:newfile.php?file&&files=' . $filename);
+} else {
+  // header('location:newfile.php?file&&files=errr');
 }
 ?>

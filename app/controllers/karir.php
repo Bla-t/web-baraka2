@@ -5,7 +5,7 @@ class karir extends Controller
   {
     $data['judul'] = 'BST | Lowongan Pekerjaan';
     $data['karir'] = $this->model('karir_model')->getkarir();
-    $data['jumlah'] = $this->model('karir_model')->getjumlahkarir();
+    $data['jumlah'] = $this->model('karir_model')->spesifickarir();
     $data['kepala'] = '';
     $data['kepala2'] = '';
     $data['footer'] = '<script src="' . BASEURL . '/app/js/nav.js"></script>';
@@ -18,11 +18,11 @@ class karir extends Controller
     $data['judul'] = 'BST | Cari Lowongan Pekerjaan';
     $data['karir'] = $this->model('karir_model')->getkarir();
     $data['jumlah'] = $this->model('karir_model')->spesifickarir();
-    $data['kepala'] = '';
-    $data['kepala2'] = '';
-    $data['footer'] = '<script src="' . BASEURL . '/app/js/nav.js"></script>';
-    $this->view('header', $data);
-    $this->view('karir/index', $data);
-    $this->view('footer', $data);
+    // $data['kepala'] = '';
+    // $data['kepala2'] = '';
+    // $data['footer'] = '<script src="' . BASEURL . '/app/js/nav.js"></script>';
+    // $this->view('header', $data);
+    // $this->view('karir/index', $data);
+    // $this->view('footer', $data);
   }
 }

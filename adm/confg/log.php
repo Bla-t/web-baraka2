@@ -1,9 +1,9 @@
 <?php
 // error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
 session_start();
+include 'config.php';
 
 // menghubungkan php dengan koneksi database
-include 'config.php';
 
 // menangkap data yang dikirim dari form login
 $username = $_POST['user'];

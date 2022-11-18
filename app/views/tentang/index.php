@@ -1,8 +1,8 @@
 <!-- Banner Image  -->
 <style>
   .banner-image {
-    background-color: darkslategray;
-    /* background-image: url('<?= BASEURL; ?>/img/about.png'); */
+    /* background-color: darkslategray; */
+    background-image: url('<?= BASEURL; ?>/app/img/tentang.jpg');
     background-size: cover;
     /*filter: blur(8px);
       -webkit-filter: blur(8px);*/
@@ -71,21 +71,21 @@
           <div class="col">
             <div class="content text-center">
               <h4 style="color:#23305A;">
-                MOTO
+                Tepat Mutu
               </h4>
             </div>
           </div>
           <div class="col">
             <div class="content text-center">
               <h4 style="color:#23305A;">
-                MOTO
+                Tepat Waktu
               </h4>
             </div>
           </div>
           <div class="col">
             <div class="content text-center">
               <h4 style="color:#23305A;">
-                MOTO
+                Dapat di Andalkan
               </h4>
             </div>
           </div>

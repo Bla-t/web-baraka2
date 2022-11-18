@@ -106,8 +106,16 @@ $isisos = mysqli_fetch_assoc($data2);
           <li class="nav-item">
             <a class="nav-link text-white" href="#">News Center</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="#">Karir</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Karir
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="karir.php">Karir</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="setkarir.php">Set Karir</a></li>
+            </ul>
           </li>
           <li class="nav-item">
             <a class="nav-link text-white" href="kontak.php">Hubungi kami</a>

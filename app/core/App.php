@@ -9,13 +9,16 @@ class App
   public function __construct()
   {
     // parsing
-
-    //controller
     $url = $this->URL();
+    if ($url == NULL) {
+      $url[0] = 'home';
+    }
+    //controller
     if (file_exists('app/controllers/' . $url[0] . '.php')) {
       $this->controller = $url[0];
       unset($url[0]);
     }
+    // var_dump($url);
 
     require_once 'app/controllers/' . $this->controller . '.php';
     $this->controller = new $this->controller;

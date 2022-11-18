@@ -8,7 +8,11 @@ if (isset($_GET['tambah'])) {
       $nama = $_POST['nama'];
       $alamat = $_POST['alamat'];
       $tlp = $_POST['tlp'];
-      $gmap = $_POST['map'];
+      if (empty($_POST['map'])) {
+        $gmap = '-';
+      } else {
+        $gmap = $_POST['map'];
+      }
       $lat = $_POST['latmap'];
       $long = $_POST['lonmap'];
       $wil = $_POST['kowil'];
@@ -35,23 +39,26 @@ if (isset($_GET['tambah'])) {
       #upload gambar ke server.!!
     case 'upload':
       #pctrs = pictures
-      $rand = rand();
+      $rand = rand(0, 120);
       $ekstensi =  array('png', 'jpg', 'jpeg');
       $filename = $_FILES['pctrs']['name'];
       $ukuran = $_FILES['pctrs']['size'];
       $templt = $_FILES['pctrs']['tmp_name'];
       $ext = pathinfo($filename, PATHINFO_EXTENSION);
-
+      $length = strlen($filename);
       if (!in_array($ext, $ekstensi)) {
-        header("location:../sethome.php?pctrs=denied");
+        header("location:../sethome.php?alert=err&file=ekstensi");
+      } elseif (strlen($filename) > 20) {
+        header("location:../sethome.php?alert=err&file=huruf/karakter lebih dari 20");
       } else {
         if ($ukuran < 1044070) {
           $xx = $rand . '_' . $filename;
-          move_uploaded_file($_FILES['pctrs']['tmp_name'], '../img/slideimg/' . $rand . '_' . $filename);
+          // move_uploaded_file($_FILES['pctrs']['tmp_name'], '../img/slideimg/' . $rand . '_' . $filename);
+          move_uploaded_file($_FILES['pctrs']['tmp_name'], '../../app/img/slideimg/' . $rand . '_' . $filename);
           mysqli_query($conn, "INSERT INTO `slider` VALUES(NULL,'$xx')");
-          header("location:../sethome.php?pctrs=added&$_FILES[pctrs][tmp_name]");
+          header("location:../sethome.php?alert=sukses&len=$length&file=Data");
         } else {
-          header("location:../sethome.php?pctrs=sizeoverload");
+          header("location:../sethome.php?alert=err&file=sizeoverload");
         }
       }
       break;
@@ -99,13 +106,6 @@ if (isset($_GET['mode'])) {
       mysqli_query($conn, " UPDATE `kontak` SET `marketing` = '$fb',`wa_marketing` = '$ig',`daerah` = '$twtr',`wa_daerah` = '$mail' WHERE `id` = '2'") or die(mysqli_error($conn));
       header('location:../info_edit.php?cek=medsos');
       break;
-    case 'unlink':
-      $id = $_GET['id'];
-      $file = '../img/slideimg/' . $_GET['filename'];
-      unlink($file);
-      mysqli_query($conn, "DELETE FROM `slider` WHERE `id` = $id");
-      header("location:../sethome.php?pctrsid=$id&filename=$_GET[filename] dell");
-      break;
     case 'updt_cbg':
       $id = $_POST['id'];
       $nama = $_POST['updtnama'];
@@ -144,6 +144,14 @@ if (isset($_GET['hps'])) {
   #buat parameter data apa yang akan di update
   switch ($_GET['hps']) {
       #parameter untuk update data, nomor marketing
+    case 'unlink':
+      $id = $_GET['id'];
+      $filename = $_GET['filename'];
+      $file = '../../app/img/slideimg/' . $filename;
+      unlink($file);
+      mysqli_query($conn, "DELETE FROM `slider` WHERE `id` = $id");
+      header("location:../sethome.php?alert=dell&file=$id&filename=$filename");
+      break;
     case 'hps_cbg':
       $id = $_GET['id'];
       $namcab = $_GET['cab'];

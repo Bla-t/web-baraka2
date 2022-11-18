@@ -1,6 +1,5 @@
 <?php
 include "header.php";
-
 $datagambar = mysqli_query($conn, "SELECT * FROM `slider` ORDER BY `id`");
 ?>
 <style>
@@ -22,6 +21,29 @@ $datagambar = mysqli_query($conn, "SELECT * FROM `slider` ORDER BY `id`");
 <div class="container my-1 d-grid mb-5">
   <div class="container body">
     <div class="row">
+      <?php
+      if (isset($_GET['alert'])) {
+        if ($_GET["alert"] == 'sukses') {
+          echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>file ' . $_GET['file'] . '</strong> berhasil di tambahkan.!!
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>';
+        } elseif ($_GET["alert"] == 'err') {
+          echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Gagal.!!,</strong> ' . $_GET['file'] . '.!
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>';
+        } elseif ($_GET["alert"] == 'dell') {
+          echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>File id "' . $_GET['file'] . '"</strong> Berhasil di hapus.!! 
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>';
+        }
+        unset($_GET["alert"]);
+      }
+      ?>
+    </div>
+    <div class="row">
       <div class="col-md-6">
         <div class="table-responsive">
           <table class="table">
@@ -36,14 +58,16 @@ $datagambar = mysqli_query($conn, "SELECT * FROM `slider` ORDER BY `id`");
               <?php
               $no = 1;
               while ($data = mysqli_fetch_assoc($datagambar)) {
-                $file = "img/slideimg/" . $data['gambr'];
+                $file = "../app/img/slideimg/" . $data['gambr'];
+                $ukuran = filesize($file) / 1000;
+                $filesize = round($ukuran);
               ?>
                 <tr>
                   <td><?= $no++; ?>.</td>
                   <td><?= $data['gambr']; ?></td>
                   <td><img src="<?= $file; ?>" alt="<?= $data['gambr']; ?>" width="100"></td>
-                  <td><?= filesize($file) / 1000; ?>KB</td>
-                  <td><a href="confg/crud.php?mode=unlink&<?= 'id=' . $data['id'] . '&filename=' . $data['gambr'] ?>" class="btn btn-sm btn-danger">hapus</a></td>
+                  <td><?= $filesize; ?> KB</td>
+                  <td><a href="confg/crud.php?hps=unlink&<?= 'id=' . $data['id'] . '&filename=' . $data['gambr'] ?>" class="btn btn-sm btn-danger">hapus</a></td>
                 </tr>
               <?php
               } ?>

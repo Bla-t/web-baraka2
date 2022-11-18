@@ -23,11 +23,16 @@ class karir_model
   }
   public function spesifickarir()
   {
-    $tipe = $_POST['byklass'];
-    $query = ("SELECT * FROM $this->tbl2 WHERE `kelas` like :keyword");
-    $this->db->query($query);
-    $this->db->bind('keyword', "%$tipe%");
-    return $this->db->semua();
+    if (!empty($_POST['byklass'])) {
+      $tipe = $_POST['byklass'];
+      $query = ("SELECT * FROM $this->tbl2 WHERE `kelas` LIKE :keyword");
+      $this->db->query($query);
+      $this->db->bind('keyword', "%$tipe%");
+      return $this->db->semua();
+    } else {
+      $this->db->query("SELECT * FROM $this->tbl2 ");
+      return $this->db->semua();
+    }
     // return $this->lat;
   }
 }
