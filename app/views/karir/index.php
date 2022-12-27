@@ -8,8 +8,13 @@
   }
 </style>
 <div class="banner-image w-100 vh-100 d-flex justify-content-center align-items-center">
-  <div class="content text-center">
-    <h1>Lowongan Pekerjaan</h1>
+  <div class="container h-100">
+    <div class="d-flex h-100 text-left align-items-center">
+      <div class="w-100 text-white">
+        <h1 class="display-3">Lowongan Pekerjaan</h1>
+        <!-- <h1 class="lead mb-0">HARGA BERSAHABAT</h1> -->
+      </div>
+    </div>
   </div>
 </div>
 <div class="container my-5 d-grid gap-5">
@@ -17,7 +22,8 @@
     <div class="col" style="background-color: #FFCD91;">
       <!-- <img src="<?= BASEURL; ?>/img/logs.png" alt="low1" class="img d-flex justify-content-center"> -->
       <div class="d-flex justify-content-center mb-2">
-        <h1></h1>
+        <h1>
+        </h1>
       </div>
       <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam facere velit culpa libero provident sit cum eveniet ipsa ducimus. Officiis, aperiam alias porro repellendus sunt modi animi dicta ducimus cumque?</h5>
     </div>
@@ -40,7 +46,6 @@
       </div>
     </form>
   </div>
-
 </div>
 <div class="container my-5 d-grid gap-5">
   <div class="row">
@@ -54,11 +59,18 @@
             <div class="card-body">
               <h5 class="card-title"><?= $isi['jabatan']; ?></h5>
               <h6 class="card-subtitle mb-2 text-muted"><?= $isi['kelas']; ?></h6>
+
               <!-- isi rangkuman kerja -->
-              <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore, et quod..</p>
+              <!-- <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore, et quod..</p> -->
+              <span class="badge text-bg-primary">info</span>
+              <span class="badge text-bg-primary">Seco</span>
+              <span class="badge text-bg-primary">Sendary</span>
+              <span class="badge text-bg-primary">condary</span>
+              <span class="badge text-bg-primary">dary</span>
+              <span class="badge text-bg-primary">aasssSecondary</span>
             </div>
             <div class="card-footer">
-              <a href="<?= BASEURL; ?>" class="card-link btn btn-sm btn-secondary mt-1"> Cek</a>
+              <a href="<?= BASEURL . '/karier/' . $isi['id']; ?>?<?= $isi['jabatan']; ?>" class="card-link btn btn-sm btn-secondary mt-1"> Cek</a>
             </div>
           </div>
         </div>

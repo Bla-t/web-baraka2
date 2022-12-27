@@ -83,7 +83,7 @@ $mapvalue = mysqli_fetch_all($val_map);
       if (isset($_POST['cabs'])) {
 
         $param = $_POST['cabs'];
-        $result = mysqli_query($conn, "SELECT * FROM `isi_cabang` WHERE `alamat` LIKE '%$param%' ") or die(mysqli_error($conn));
+        $result = mysqli_query($conn, "SELECT * FROM `isi_cabang` WHERE `alamat` LIKE '%$param%' OR `nama_cabang` LIKE '%$param%'") or die(mysqli_error($conn));
         if ($param == ' ') {
       ?>
           <br>

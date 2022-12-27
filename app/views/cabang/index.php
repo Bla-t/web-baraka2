@@ -21,9 +21,13 @@ if (mysqli_connect_errno($dbh)) {
   }
 </style>
 <div class="banner-image w-100 vh-100 d-flex justify-content-center align-items-center">
-  <div class="content text-center">
-    <h1>CARI CABANG, AGEN</h1>
-    <h1>TERDEKAT DENGAN ANDA</h1>
+  <div class="container h-100">
+    <div class="d-flex h-100 text-left align-items-center">
+      <div class="w-100 text-white">
+        <h1 class="display-3">CARI CABANG, AGEN</h1>
+        <h1 class="lead mb-0">TERDEKAT DENGAN ANDA</h1>
+      </div>
+    </div>
   </div>
 </div>
 

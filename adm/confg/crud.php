@@ -39,7 +39,7 @@ if (isset($_GET['tambah'])) {
       #upload gambar ke server.!!
     case 'upload':
       #pctrs = pictures
-      $rand = rand(0, 120);
+      $tgl = date("Y-m-d");
       $ekstensi =  array('png', 'jpg', 'jpeg');
       $filename = $_FILES['pctrs']['name'];
       $ukuran = $_FILES['pctrs']['size'];
@@ -52,9 +52,9 @@ if (isset($_GET['tambah'])) {
         header("location:../sethome.php?alert=err&file=huruf/karakter lebih dari 20");
       } else {
         if ($ukuran < 1044070) {
-          $xx = $rand . '_' . $filename;
+          $xx = $tgl . '_' . $filename;
           // move_uploaded_file($_FILES['pctrs']['tmp_name'], '../img/slideimg/' . $rand . '_' . $filename);
-          move_uploaded_file($_FILES['pctrs']['tmp_name'], '../../app/img/slideimg/' . $rand . '_' . $filename);
+          move_uploaded_file($_FILES['pctrs']['tmp_name'], '../../app/img/slideimg/' . $tgl . '_' . $filename);
           mysqli_query($conn, "INSERT INTO `slider` VALUES(NULL,'$xx')");
           header("location:../sethome.php?alert=sukses&len=$length&file=Data");
         } else {

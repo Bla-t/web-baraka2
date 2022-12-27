@@ -84,7 +84,7 @@ $data_slide = mysqli_query($conn, "SELECT * FROM `slider` ") or die(mysqli_error
             }
           ?>
             <div id="<?= $a++; ?>" class="carousel-item <?= $class; ?>" data-bs-interval="20000">
-              <img src="img/slideimg/<?= $slide['gambr']  ?>" class="d-block w-100" alt="<?= $slide['gambr']; ?>">
+              <img src="../app/img/slideimg/<?= $slide['gambr']  ?>" class="d-block w-100" alt="<?= $slide['gambr']; ?>">
             </div>
           <?php
           }

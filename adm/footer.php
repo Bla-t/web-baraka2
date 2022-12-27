@@ -80,6 +80,8 @@
 </footer>
 <!-- <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script> -->
 <script type="text/javascript" src="js/templatemo-script.js"></script>
+<script type="text/javascript" src="js/sweetalert2.all.min.js"></script>
+<script type="text/javascript" src="js/sweetalert.js"></script>
 <script type="text/javascript">
   var nav = document.querySelector('nav')
 

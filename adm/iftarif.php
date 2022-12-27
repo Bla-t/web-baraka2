@@ -55,27 +55,27 @@ $kubik = ($Tinggi * $lbr * $pjg) / 1000000;
 $data = mysqli_query($conn, "SELECT * FROM `tarif2022`") or die(mysqli_error($conn));
 while ($d = mysqli_fetch_array($data)) {
   if ($dari != 'MTB') {
-    if ($d['dari'] == $dari && $d['tujuan'] == $tujuan) {
-      switch ($d['estimasi']) {
+    if ($d_harga['dari'] == $dari && $d_harga['tujuan'] == $tujuan) {
+      switch ($d_harga['estimasi']) {
         case '-':
           echo '<h5 style="text-align:center" >Pengiriman dari <span class="font-weight-bold ">"' . $from . '"</span> ke <span class="font-weight-bold">"' . $to . '"</span> <br/> belum tersedia..</h5>';
           break;
         default:
           if ($berat > 0 && $berat < 11) {
-            $tarifs = rupiah($d['min1-10'] + ($berat - $d['kons1-10']) * $d['kg1-10']);
-            $tarif_kubik = rupiah($kubik * $d['kubikasi']);
+            $tarifs = rupiah($d_harga['min1-10'] + ($berat - $d_harga['kons1-10']) * $d_harga['kg1-10']);
+            $tarif_kubik = rupiah($kubik * $d_harga['kubikasi']);
           } elseif ($berat > 10 && $berat < 21) {
-            $tarifs = rupiah($d['min11-20'] + ($berat - $d['kons11-20']) * $d['kg11-20']);
-            $tarif_kubik =  rupiah($kubik * $d['kubikasi']);
+            $tarifs = rupiah($d_harga['min11-20'] + ($berat - $d_harga['kons11-20']) * $d_harga['kg11-20']);
+            $tarif_kubik =  rupiah($kubik * $d_harga['kubikasi']);
           } elseif ($berat > 20 && $berat < 101) {
-            $tarifs = rupiah($d['MIN7-10'] + ($berat - $d['KONS7-10']) * $d['KG7-10']);
-            $tarif_kubik = rupiah($kubik * $d['kubikasi']);
+            $tarifs = rupiah($d_harga['MIN7-10'] + ($berat - $d_harga['KONS7-10']) * $d_harga['KG7-10']);
+            $tarif_kubik = rupiah($kubik * $d_harga['kubikasi']);
           } elseif ($berat > 100) {
-            $tarifs = rupiah($d['MIN>100'] + ($berat - $d['KONS>100']) * $d['KG>100']);
-            $tarif_kubik = rupiah(($Tinggi * $lbr * $pjg / 1000000) * $d['kubikasi']);
+            $tarifs = rupiah($d_harga['MIN>100'] + ($berat - $d_harga['KONS>100']) * $d_harga['KG>100']);
+            $tarif_kubik = rupiah(($Tinggi * $lbr * $pjg / 1000000) * $d_harga['kubikasi']);
           } elseif ($berat == 0) {
             $tarifs = rupiah(0);
-            $tarif_kubik = rupiah($kubik * $d['kubikasi']);
+            $tarif_kubik = rupiah($kubik * $d_harga['kubikasi']);
           }
           echo ('<table class="table table-bordered">
             <thead class="thead-dark">
@@ -91,7 +91,7 @@ while ($d = mysqli_fetch_array($data)) {
               <tr>
                <td>' . $from . '</td>
                <td>' . $to . '</td>
-               <td>' . $d['estimasi'] . '</td>
+               <td>' . $d_harga['estimasi'] . '</td>
                <td>' . $berat . ' Kg = ' . $tarifs . '</td>
                <td>' . $kubik . ' m³ = ' . $tarif_kubik . '</td>
               </tr>
@@ -102,46 +102,46 @@ while ($d = mysqli_fetch_array($data)) {
     }
   }
   if ($tujuan == 'VIA') {
-    if ($d['dari'] == $dari && $d['tujuan'] == 'SBY') {
-      switch ($d['estimasi']) {
+    if ($d_harga['dari'] == $dari && $d_harga['tujuan'] == 'SBY') {
+      switch ($d_harga['estimasi']) {
         case '-':
           echo '<h5 style="text-align:center" >Pengiriman dari <span class="font-weight-bold ">"' . $from . '"</span> ke <span class="font-weight-bold">"' . $to . '"</span> <br/> belum tersedia..</h5>';
           break;
         default:
           if ($berat > 0 && $berat < 11) {
-            $tarifs = rupiah($d['min1-10'] + ($berat - $d['kons1-10']) * $d['kg1-10'] + 10000);
+            $tarifs = rupiah($d_harga['min1-10'] + ($berat - $d_harga['kons1-10']) * $d_harga['kg1-10'] + 10000);
             if ($kubik == 0) {
               $tarif_kubik = rupiah(0);
             } else {
-              $tarif_kubik =  rupiah($kubik * $d['kubikasi'] + 10000);
+              $tarif_kubik =  rupiah($kubik * $d_harga['kubikasi'] + 10000);
             }
           } elseif ($berat > 10 && $berat < 21) {
-            $tarifs =  rupiah($d['min11-20'] + ($berat - $d['kons11-20']) * $d['kg11-20'] + 10000);
+            $tarifs =  rupiah($d_harga['min11-20'] + ($berat - $d_harga['kons11-20']) * $d_harga['kg11-20'] + 10000);
             if ($kubik == 0) {
               $tarif_kubik = rupiah(0);
             } else {
-              $tarif_kubik =  rupiah($kubik * $d['kubikasi'] + 10000);
+              $tarif_kubik =  rupiah($kubik * $d_harga['kubikasi'] + 10000);
             }
           } elseif ($berat > 20 && $berat < 101) {
-            $tarifs = rupiah($d['min21-100'] + ($berat - $d['kons21-100']) * $d['kg21-100'] + 10000);
+            $tarifs = rupiah($d_harga['min21-100'] + ($berat - $d_harga['kons21-100']) * $d_harga['kg21-100'] + 10000);
             if ($kubik == 0) {
               $tarif_kubik = rupiah(0);
             } else {
-              $tarif_kubik =  rupiah($kubik * $d['kubikasi'] + 10000);
+              $tarif_kubik =  rupiah($kubik * $d_harga['kubikasi'] + 10000);
             }
           } elseif ($berat > 100) {
-            $tarifs = rupiah($d['min101'] + ($berat - $d['kons101']) * $d['kg101'] + 10000);
+            $tarifs = rupiah($d_harga['min101'] + ($berat - $d_harga['kons101']) * $d_harga['kg101'] + 10000);
             if ($kubik == 0) {
               $tarif_kubik = rupiah(0);
             } else {
-              $tarif_kubik =  rupiah($kubik * $d['kubikasi'] + 10000);
+              $tarif_kubik =  rupiah($kubik * $d_harga['kubikasi'] + 10000);
             }
           } elseif ($berat == 0) {
             $tarifs =  rupiah(0);
             if ($kubik == 0) {
               $tarif_kubik = rupiah(0);
             } else {
-              $tarif_kubik =  rupiah($kubik * $d['kubikasi'] + 10000);
+              $tarif_kubik =  rupiah($kubik * $d_harga['kubikasi'] + 10000);
             }
           }
           echo ('<table class="table table-bordered">
@@ -158,7 +158,7 @@ while ($d = mysqli_fetch_array($data)) {
               <tr>
                <td>' . $from . '</td>
                <td>' . $to . '</td>
-               <td>' . $d['estimasi'] . '</td>
+               <td>' . $d_harga['estimasi'] . '</td>
                <td>' . $berat . ' Kg = ' . $tarifs . '</td>
                <td>' . $kubik . ' m³ = ' . $tarif_kubik . '</td>
               </tr>
@@ -182,27 +182,27 @@ while ($d = mysqli_fetch_array($data)) {
       $dari = 'TNB';
       $tujuan = $_POST['tujuan'];
     }
-    if ($d['dari'] == $dari && $d['tujuan'] == $tujuan) {
-      switch ($d['estimasi']) {
+    if ($d_harga['dari'] == $dari && $d_harga['tujuan'] == $tujuan) {
+      switch ($d_harga['estimasi']) {
         case '-':
           echo '<h5 style="text-align:center" >Pengiriman dari <span class="font-weight-bold ">"' . $from . '"</span> ke <span class="font-weight-bold">"' . $to . '"</span> <br/> belum tersedia..</h5>';
           break;
         default:
           if ($berat > 0 && $berat < 11) {
-            $tarifs = rupiah($d['min1-10'] + ($berat - $d['kons1-10']) * $d['kg1-10']);
-            $tarif_kubik =  rupiah($kubik * $d['kubikasi']);
+            $tarifs = rupiah($d_harga['min1-10'] + ($berat - $d_harga['kons1-10']) * $d_harga['kg1-10']);
+            $tarif_kubik =  rupiah($kubik * $d_harga['kubikasi']);
           } elseif ($berat > 10 && $berat < 21) {
-            $tarifs = rupiah($d['min11-20'] + ($berat - $d['kons11-20']) * $d['kg11-20']);
-            $tarif_kubik =  rupiah($kubik * $d['kubikasi']);
+            $tarifs = rupiah($d_harga['min11-20'] + ($berat - $d_harga['kons11-20']) * $d_harga['kg11-20']);
+            $tarif_kubik =  rupiah($kubik * $d_harga['kubikasi']);
           } elseif ($berat > 20 && $berat < 101) {
-            $tarifs = rupiah($d['min21-100'] + ($berat - $d['kons21-100']) * $d['kg21-100']);
-            $tarif_kubik = rupiah($kubik  * $d['kubikasi']);
+            $tarifs = rupiah($d_harga['min21-100'] + ($berat - $d_harga['kons21-100']) * $d_harga['kg21-100']);
+            $tarif_kubik = rupiah($kubik  * $d_harga['kubikasi']);
           } elseif ($berat > 100) {
-            $tarifs = rupiah($d['min101'] + ($berat - $d['kons101']) * $d['kg101']);
-            $tarif_kubik = rupiah($kubik * $d['kubikasi']);
+            $tarifs = rupiah($d_harga['min101'] + ($berat - $d_harga['kons101']) * $d_harga['kg101']);
+            $tarif_kubik = rupiah($kubik * $d_harga['kubikasi']);
           } elseif ($berat == 0) {
             $tarif = rupiah(0);
-            $tarif_kubik = rupiah($kubik * $d['kubikasi']);
+            $tarif_kubik = rupiah($kubik * $d_harga['kubikasi']);
           }
           echo ('<table class="table table-bordered">
             <thead class="thead-dark">
@@ -218,7 +218,7 @@ while ($d = mysqli_fetch_array($data)) {
               <tr>
                <td>' . $from . '</td>
                <td>' . $to . '</td>
-               <td>' . $d['estimasi'] . '</td>
+               <td>' . $d_harga['estimasi'] . '</td>
                <td>' . $berat . ' Kg = ' . $tarifs . '</td>
                <td>' . $kubik . ' m³ = ' . $tarif_kubik . '</td>
               </tr>

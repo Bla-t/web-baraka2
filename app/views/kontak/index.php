@@ -17,8 +17,13 @@ $cs = $this->model('kontak_model')->givesosmed();
 ?>
 
 <div class="banner-image w-100 vh-100 d-flex justify-content-center align-items-center">
-  <div class="content text-center">
-    <h1>Pelayanan yang RESPONSIF</h1>
+  <div class="container h-100">
+    <div class="d-flex h-100 text-left align-items-center">
+      <div class="w-100 text-white">
+        <h1 class="display-3">Pelayanan yang RESPONSIF</h1>
+        <h1 class="lead mb-0">adalah PRIORITAS Kami</h1>
+      </div>
+    </div>
   </div>
 </div>
 <div class="container my-5 d-grid gap-5">

@@ -1,454 +1,205 @@
 <?php
 //if (isset($_POST['hitung'])) {
+ini_set('allow_url_fopen', 1);
 
 $berat = $_GET['brt'];
 //$Lebar = $_GET['le'];
 // $Panjang = $_GET['pa'];
-if (!empty($_GET['vol'])) {
-  $Tinggi = $_GET['vol'];
-} else {
-  $Tinggi = 0;
-}
+$Tinggi = 0;
 $tujuan = $_GET['tujuan'];
 $dari = $_GET['dari'];
 $from = $_GET['da'];
 $to = $_GET['tuj'];
+if ($_GET['tujuan'] == 'VIA') {
+  $tujuan_api = 'SBY';
+} else {
+  $tujuan_api = $_GET['tujuan'];
+}
 
 
 //API konekting
-$url = 'http://api.pindah.barcode-bst.com/?dari=' . $dari . '&tujuan=' . $tujuan;
-$isi = json_decode(file_get_contents($url), true);
-$d = $isi['data'][0];
+$urls = 'http://api.pindah.barcode-bst.com/?dari=' . $dari . '&tujuan=' . $tujuan_api;
+$isi_harga = json_decode(file_get_contents($urls), true);
+$d_harga = $isi_harga['data'][0];
 // var_dump($d['TUJUAN'] . '' . $d['DARI']);
-
+// var_dump($d_harga);
 // $data = mysqli_query($conn, "SELECT * FROM `tarif_baru`") or die(mysqli_error($conn));
 // while ($d = mysqli_fetch_array($data)) {
 if (isset($dari)) {
-
-  if ($d['DARI'] == $dari && $d['TUJUAN'] == $tujuan) {
-    switch ($d['ESTIMASI']) {
-      case '-':
-        echo '<h5 style="text-align:center" >Pengiriman dari <span class="font-weight-bold ">"' . $from . '"</span> ke <span class="font-weight-bold">"' . $to . '"</span> <br/> belum tersedia..</h5>';
-        break;
-      default:
-        if ($berat > 0 && $berat < 3) {
-          echo ('<table class="table table-bordered">
-            <thead class="thead-dark">
-              <tr>
-                <th>Dari</th>
-                <th>Tujuan</th>
-                <th>Estimasi</th>
-                <th>Harga Kilogram</th>
-                <th>Harga Kubikasi</th>
-              </tr>
-            </thead>
-            <tbody class="font-weight-bold">
-              <tr>
-                <td>' . $from . '</td>
-				<td>' . $to . '</td>
-				<td>' . $d['ESTIMASI'] . '</td>
-				<td>' . $berat . 'Kg = ' . rupiah($d['MIN1-2'] + ($berat - $d['KONS1-2']) * $d['KG1-2']) . '</td>
-				<td>' . $Tinggi . ' m³ = ' . rupiah($Tinggi  * $d['KUBIKASI']) . '</td>
-              </tr>
-            </tbody>
-          </table>');
-        } elseif ($berat > 2 && $berat < 7) {
-          echo ('<table class="table table-bordered">
-            <thead class="thead-dark">
-              <tr>
-                <th>Dari</th>
-                <th>Tujuan</th>
-                <th>Estimasi</th>
-                <th>Harga Kilogram</th>
-                <th>Harga Kubikasi</th>
-              </tr>
-            </thead>
-            <tbody class="font-weight-bold">
-              <tr>
-                <td>' . $from . '</td>
-				<td>' . $to . '</td>
-				<td>' . $d['ESTIMASI'] . '</td>
-				<td>' . $berat . 'Kg = ' . rupiah($d['MIN3-6'] + ($berat - $d['KONS3-6']) * $d['KG3-6']) . '</td>
-				<td>' . $Tinggi . ' m³ = ' . rupiah($Tinggi  * $d['KUBIKASI']) . '</td>
-              </tr>
-            </tbody>
-          </table>');
-        } elseif ($berat > 6 && $berat < 11) {
-          //echo ('Dari : ' . $from . '<br/>Tujuan : ' . $to);
-          echo ('<table class="table table-bordered">
-            <thead class="thead-dark">
-              <tr>
-                <th>Dari</th>
-                <th>Tujuan</th>
-                <th>Estimasi</th>
-                <th>Harga Kilogram</th>
-                <th>Harga Kubikasi</th>
-              </tr>
-            </thead>
-            <tbody class="font-weight-bold">
-              <tr>
-               <td>' . $from . '</td>
-				<td>' . $to . '</td>
-				<td>' . $d['ESTIMASI'] . '</td>
-				<td>' . $berat . 'Kg = ' . rupiah($d['MIN7-10'] + ($berat - $d['KONS7-10']) * $d['KG7-10']) . '</td>
-				<td>' . $Tinggi . ' m³ = ' . rupiah($Tinggi  * $d['KUBIKASI']) . '</td>
-              </tr>
-            </tbody>
-          </table>');
-        } elseif ($berat > 10 && $berat < 21) {
-          //echo ('Dari : ' . $from . '<br/>Tujuan : ' . $to);
-          echo ('<table class="table table-bordered">
-            <thead class="thead-dark">
-              <tr>
-                <th>Dari</th>
-                <th>Tujuan</th>
-                <th>Estimasi</th>
-                <th>Harga Kilogram</th>
-                <th>Harga Kubikasi</th>
-              </tr>
-            </thead>
-            <tbody class="font-weight-bold">
-              <tr>
-                <td>' . $from . '</td>
-				<td>' . $to . '</td>
-				<td>' . $d['ESTIMASI'] . '</td>
-				<td>' . $berat . 'Kg = ' . rupiah($d['MIN11-20'] + ($berat - $d['KONS11-20']) * $d['KG11-20']) . '</td>
-				<td>' . $Tinggi . ' m³ = ' . rupiah($Tinggi  * $d['KUBIKASI']) . '</td>
-              </tr>
-            </tbody>
-          </table>');
-        } elseif ($berat > 20 && $berat < 26) {
-          // echo ('Dari : ' . $from . '<br/>Tujuan : ' . $to);
-          echo ('<table class="table table-bordered">
-            <thead class="thead-dark">
-              <tr>
-                <th>Dari</th>
-                <th>Tujuan</th>
-                <th>Estimasi</th>
-                <th>Harga Kilogram</th>
-                <th>Harga Kubikasi</th>
-              </tr>
-            </thead>
-            <tbody class="font-weight-bold">
-              <tr>
-                <td>' . $from . '</td>
-				<td>' . $to . '</td>
-				<td>' . $d['ESTIMASI'] . '</td>
-				<td>' . $berat . 'Kg = ' . rupiah($d['MIN21-25'] + ($berat - $d['KONS21-25']) * $d['KG21-25']) . '</td>
-				<td>' . $Tinggi . ' m³ = ' . rupiah($Tinggi  * $d['KUBIKASI']) . '</td>
-              </tr>
-            </tbody>
-          </table>');
-        } elseif ($berat > 25 && $berat < 51) {
-
-          // echo ('Dari : ' . $from . '<br/>Tujuan : ' . $to);
-          echo ('<table class="table table-bordered">
-            <thead class="thead-dark">
-              <tr>
-                <th>Dari</th>
-                <th>Tujuan</th>
-                <th>Estimasi</th>
-                <th>Harga Kilogram</th>
-                <th>Harga Kubikasi</th>
-              </tr>
-            </thead>
-            <tbody class="font-weight-bold">
-              <tr>
-                <td>' . $from . '</td>
-				<td>' . $to . '</td>
-				<td>' . $d['ESTIMASI'] . '</td>
-				<td>' . $berat . 'Kg = ' . rupiah($d['MIN26-50'] + ($berat - $d['KONS26-50']) * $d['KG26-50']) . '</td>
-				<td>' . $Tinggi . ' m³ = ' . rupiah($Tinggi  * $d['KUBIKASI']) . '</td>
-              </tr>
-            </tbody>
-          </table>');
-        } elseif ($berat > 50 && $berat < 101) {
-
-          // echo ('Dari : ' . $from . '<br/>Tujuan : ' . $to);
-          echo ('<table class="table table-bordered">
-            <thead class="thead-dark">
-              <tr>
-                <th>Dari</th>
-                <th>Tujuan</th>
-                <th>Estimasi</th>
-                <th>Harga Kilogram</th>
-                <th>Harga Kubikasi</th>
-              </tr>
-            </thead>
-            <tbody class="font-weight-bold">
-              <tr>
-                <td>' . $from . '</td>
-				<td>' . $to . '</td>
-				<td>' . $d['ESTIMASI'] . '</td>
-				<td>' . $berat . 'Kg = ' . rupiah($d['MIN51-100'] + ($berat - $d['KONS51-100']) * $d['KG51-100']) . '</td>
-				<td>' . $Tinggi . ' m³ = ' . rupiah($Tinggi  * $d['KUBIKASI']) . '</td>
-              </tr>
-            </tbody>
-          </table>');
-        } elseif ($berat > 100) {
-
-          // echo ('Dari : ' . $from . '<br/>Tujuan : ' . $to);
-          echo ('<table class="table table-bordered">
-            <thead class="thead-dark">
-              <tr>
-                <th>Dari</th>
-                <th>Tujuan</th>
-                <th>Estimasi</th>
-                <th>Harga Kilogram</th>
-                <th>Harga Kubikasi</th>
-              </tr>
-            </thead>
-            <tbody class="font-weight-bold">
-              <tr>
-                <td>' . $from . '</td>
-				<td>' . $to . '</td>
-				<td>' . $d['ESTIMASI'] . '</td>
-				<td>' . $berat . 'Kg = ' . rupiah($d['MIN>100'] + ($berat - $d['KONS>100']) * $d['KG>100']) . '</td>
-				<td>' . $Tinggi . ' m³ = ' . rupiah($Tinggi  * $d['KUBIKASI']) . '</td>
-              </tr>
-            </tbody>
-          </table>');
-        } elseif ($berat = 0 || empty($berat)) {
-
-          // echo ('Dari : ' . $from . '<br/>Tujuan : ' . $to);
-          echo ('<table class="table table-bordered">
-            <thead class="thead-dark">
-              <tr>
-                <th>Dari</th>
-                <th>Tujuan</th>
-                <th>Estimasi</th>
-                <th>Harga Kilogram</th>
-                <th>Harga Kubikasi</th>
-              </tr>
-            </thead>
-            <tbody class="font-weight-bold">
-              <tr>
-               <td>' . $from . '</td>
-				<td>' . $to . '</td>
-				<td>' . $d['ESTIMASI'] . '</td>
-				<td>' . '0 Kg = ' . rupiah(0) . '</td>
-				<td>' . $Tinggi . ' m³ = ' . rupiah($Tinggi  * $d['KUBIKASI']) . '</td>
-              </tr>
-            </tbody>
-          </table>');
-        }
-        break;
-    }
-  }
-  if ($tujuan == 'VIA') {
-    if ($d['DARI'] == $dari && $d['TUJUAN'] == 'SURABAYA') {
-      switch ($d['ESTIMASI']) {
+  if ($dari != 'MTB') {
+    if ($d_harga['dari'] == $dari && $d_harga['tujuan'] == $tujuan) {
+      switch ($d_harga['estimasi']) {
         case '-':
           echo '<h5 style="text-align:center" >Pengiriman dari <span class="font-weight-bold ">"' . $from . '"</span> ke <span class="font-weight-bold">"' . $to . '"</span> <br/> belum tersedia..</h5>';
           break;
         default:
-          if ($berat > 0 && $berat < 3) {
-            echo ('<table class="table table-bordered">
-                <thead class="thead-dark">
-                  <tr>
-                    <th>Dari</th>
-                    <th>Tujuan</th>
-                    <th>Estimasi</th>
-                    <th>Harga Kilogram</th>
-                    <th>Harga Kubikasi</th>
-                  </tr>
-                </thead>
-                <tbody class="font-weight-bold">
-                  <tr>
-                    <td>' . $from . '</td>
-    				<td>' . $to . '</td>
-    				<td>' . $d['ESTIMASI'] . '</td>
-    				<td>' . $berat . 'Kg = ' . rupiah($d['MIN1-2'] + ($berat - $d['KONS1-2']) * $d['KG1-2'] + 10000) . '</td>
-    				<td>' . $Tinggi . ' m³ = ' . rupiah($Tinggi  * $d['KUBIKASI']) . '</td>
-                  </tr>
-                </tbody>
-              </table>');
-          } elseif ($berat > 2 && $berat < 7) {
-            echo ('<table class="table table-bordered">
-                <thead class="thead-dark">
-                  <tr>
-                    <th>Dari</th>
-                    <th>Tujuan</th>
-                    <th>Estimasi</th>
-                    <th>Harga Kilogram</th>
-                    <th>Harga Kubikasi</th>
-                  </tr>
-                </thead>
-                <tbody class="font-weight-bold">
-                  <tr>
-                    <td>' . $from . '</td>
-    				<td>' . $to . '</td>
-    				<td>' . $d['ESTIMASI'] . '</td>
-    				<td>' . $berat . 'Kg = ' . rupiah($d['MIN3-6'] + ($berat - $d['KONS3-6']) * $d['KG3-6'] + 10000) . '</td>
-    				<td>' . $Tinggi . ' m³ = ' . rupiah($Tinggi  * $d['KUBIKASI']) . '</td>
-                  </tr>
-                </tbody>
-              </table>');
-          } elseif ($berat > 6 && $berat < 11) {
-            //echo ('Dari : ' . $from . '<br/>Tujuan : ' . $to);
-            echo ('<table class="table table-bordered">
-                <thead class="thead-dark">
-                  <tr>
-                    <th>Dari</th>
-                    <th>Tujuan</th>
-                    <th>Estimasi</th>
-                    <th>Harga Kilogram</th>
-                    <th>Harga Kubikasi</th>
-                  </tr>
-                </thead>
-                <tbody class="font-weight-bold">
-                  <tr>
-                   <td>' . $from . '</td>
-    				<td>' . $to . '</td>
-    				<td>' . $d['ESTIMASI'] . '</td>
-    				<td>' . $berat . 'Kg = ' . rupiah($d['MIN7-10'] + ($berat - $d['KONS7-10']) * $d['KG7-10'] + 10000) . '</td>
-    				<td>' . $Tinggi . ' m³ = ' . rupiah($Tinggi  * $d['KUBIKASI']) . '</td>
-                  </tr>
-                </tbody>
-              </table>');
+          if ($berat > 0 && $berat < 11) {
+            $tarifs = rupiah($d_harga['min1-10'] + ($berat - $d_harga['kons1-10']) * $d_harga['kg1-10']);
+            $tarif_kubik = rupiah($kubik * $d_harga['kubikasi']);
           } elseif ($berat > 10 && $berat < 21) {
-            //echo ('Dari : ' . $from . '<br/>Tujuan : ' . $to);
-            echo ('<table class="table table-bordered">
-                <thead class="thead-dark">
-                  <tr>
-                    <th>Dari</th>
-                    <th>Tujuan</th>
-                    <th>Estimasi</th>
-                    <th>Harga Kilogram</th>
-                    <th>Harga Kubikasi</th>
-                  </tr>
-                </thead>
-                <tbody class="font-weight-bold">
-                  <tr>
-                    <td>' . $from . '</td>
-    				<td>' . $to . '</td>
-    				<td>' . $d['ESTIMASI'] . '</td>
-    				<td>' . $berat . 'Kg = ' . rupiah($d['MIN11-20'] + ($berat - $d['KONS11-20']) * $d['KG11-20'] + 10000) . '</td>
-    				<td>' . $Tinggi . ' m³ = ' . rupiah($Tinggi  * $d['KUBIKASI']) . '</td>
-                  </tr>
-                </tbody>
-              </table>');
-          } elseif ($berat > 20 && $berat < 26) {
-            // echo ('Dari : ' . $from . '<br/>Tujuan : ' . $to);
-            echo ('<table class="table table-bordered">
-                <thead class="thead-dark">
-                  <tr>
-                    <th>Dari</th>
-                    <th>Tujuan</th>
-                    <th>Estimasi</th>
-                    <th>Harga Kilogram</th>
-                    <th>Harga Kubikasi</th>
-                  </tr>
-                </thead>
-                <tbody class="font-weight-bold">
-                  <tr>
-                    <td>' . $from . '</td>
-    				<td>' . $to . '</td>
-    				<td>' . $d['ESTIMASI'] . '</td>
-    				<td>' . $berat . 'Kg = ' . rupiah($d['MIN21-25'] + ($berat - $d['KONS21-25']) * $d['KG21-25'] + 10000) . '</td>
-    				<td>' . $Tinggi . ' m³ = ' . rupiah($Tinggi  * $d['KUBIKASI']) . '</td>
-                  </tr>
-                </tbody>
-              </table>');
-          } elseif ($berat > 25 && $berat < 51) {
-
-            // echo ('Dari : ' . $from . '<br/>Tujuan : ' . $to);
-            echo ('<table class="table table-bordered">
-                <thead class="thead-dark">
-                  <tr>
-                    <th>Dari</th>
-                    <th>Tujuan</th>
-                    <th>Estimasi</th>
-                    <th>Harga Kilogram</th>
-                    <th>Harga Kubikasi</th>
-                  </tr>
-                </thead>
-                <tbody class="font-weight-bold">
-                  <tr>
-                    <td>' . $from . '</td>
-    				<td>' . $to . '</td>
-    				<td>' . $d['ESTIMASI'] . '</td>
-    				<td>' . $berat . 'Kg = ' . rupiah($d['MIN26-50'] + ($berat - $d['KONS26-50']) * $d['KG26-50'] + 10000) . '</td>
-    				<td>' . $Tinggi . ' m³ = ' . rupiah($Tinggi  * $d['KUBIKASI']) . '</td>
-                  </tr>
-                </tbody>
-              </table>');
-          } elseif ($berat > 50 && $berat < 101) {
-
-            // echo ('Dari : ' . $from . '<br/>Tujuan : ' . $to);
-            echo ('<table class="table table-bordered">
-                <thead class="thead-dark">
-                  <tr>
-                    <th>Dari</th>
-                    <th>Tujuan</th>
-                    <th>Estimasi</th>
-                    <th>Harga Kilogram</th>
-                    <th>Harga Kubikasi</th>
-                  </tr>
-                </thead>
-                <tbody class="font-weight-bold">
-                  <tr>
-                    <td>' . $from . '</td>
-    				<td>' . $to . '</td>
-    				<td>' . $d['ESTIMASI'] . '</td>
-    				<td>' . $berat . 'Kg = ' . rupiah($d['MIN51-100'] + ($berat - $d['KONS51-100']) * $d['KG51-100'] + 10000) . '</td>
-    				<td>' . $Tinggi . ' m³ = ' . rupiah($Tinggi  * $d['KUBIKASI']) . '</td>
-                  </tr>
-                </tbody>
-              </table>');
+            $tarifs = rupiah($d_harga['min11-20'] + ($berat - $d_harga['kons11-20']) * $d_harga['kg11-20']);
+            $tarif_kubik =  rupiah($kubik * $d_harga['kubikasi']);
+          } elseif ($berat > 20 && $berat < 101) {
+            $tarifs = rupiah($d_harga['MIN7-10'] + ($berat - $d_harga['KONS7-10']) * $d_harga['KG7-10']);
+            $tarif_kubik = rupiah($kubik * $d_harga['kubikasi']);
           } elseif ($berat > 100) {
-
-            // echo ('Dari : ' . $from . '<br/>Tujuan : ' . $to);
-            echo ('<table class="table table-bordered">
-                <thead class="thead-dark">
-                  <tr>
-                    <th>Dari</th>
-                    <th>Tujuan</th>
-                    <th>Estimasi</th>
-                    <th>Harga Kilogram</th>
-                    <th>Harga Kubikasi</th>
-                  </tr>
-                </thead>
-                <tbody class="font-weight-bold">
-                  <tr>
-                    <td>' . $from . '</td>
-    				<td>' . $to . '</td>
-    				<td>' . $d['ESTIMASI'] . '</td>
-    				<td>' . $berat . 'Kg = ' . rupiah($d['MIN>100'] + ($berat - $d['KONS>100']) * $d['KG>100'] + 10000) . '</td>
-    				<td>' . $Tinggi . ' m³ = ' . rupiah($Tinggi  * $d['KUBIKASI']) . '</td>
-                  </tr>
-                </tbody>
-              </table>');
-          } elseif ($berat = 0 || empty($berat)) {
-
-            // echo ('Dari : ' . $from . '<br/>Tujuan : ' . $to);
-            echo ('<table class="table table-bordered">
-                <thead class="thead-dark">
-                  <tr>
-                    <th>Dari</th>
-                    <th>Tujuan</th>
-                    <th>Estimasi</th>
-                    <th>Harga Kilogram</th>
-                    <th>Harga Kubikasi</th>
-                  </tr>
-                </thead>
-                <tbody class="font-weight-bold">
-                  <tr>
-                   <td>' . $from . '</td>
-    				<td>' . $to . '</td>
-    				<td>' . $d['ESTIMASI'] . '</td>
-    				<td>' . '0 Kg = ' . rupiah(0) . '</td>
-    				<td>' . $Tinggi . ' m³ = ' . rupiah($Tinggi  * $d['KUBIKASI'] + 10000) . '</td>
-                  </tr>
-                </tbody>
-              </table>');
+            $tarifs = rupiah($d_harga['MIN>100'] + ($berat - $d_harga['KONS>100']) * $d_harga['KG>100']);
+            $tarif_kubik = rupiah(($Tinggi * $lbr * $pjg / 1000000) * $d_harga['kubikasi']);
+          } elseif ($berat == 0) {
+            $tarifs = rupiah(0);
+            $tarif_kubik = rupiah($kubik * $d_harga['kubikasi']);
           }
+          echo ('<table class="table table-bordered">
+            <thead class="thead-dark">
+              <tr>
+                <th>Dari</th>
+                <th>Tujuan</th>
+                <th>Estimasi</th>
+                <th>Harga Kilogram</th>
+                <th>Harga Kubikasi</th>
+              </tr>
+            </thead>
+            <tbody class="font-weight-bold">
+              <tr>
+               <td>' . $from . '</td>
+               <td>' . $to . '</td>
+               <td>' . $d_harga['estimasi'] . '</td>
+               <td>' . $berat . ' Kg = ' . $tarifs . '</td>
+               <td>' . $kubik . ' m³ = ' . $tarif_kubik . '</td>
+              </tr>
+            </tbody>
+          </table>');
           break;
       }
     }
   }
-} else {
-  echo '';
+  if ($tujuan == 'VIA') {
+    if ($d_harga['dari'] == $dari && $d_harga['tujuan'] == 'SBY') {
+      switch ($d_harga['estimasi']) {
+        case '-':
+          echo '<h5 style="text-align:center" >Pengiriman dari <span class="font-weight-bold ">"' . $from . '"</span> ke <span class="font-weight-bold">"' . $to . '"</span> <br/> belum tersedia..</h5>';
+          break;
+        default:
+          if ($berat > 0 && $berat < 11) {
+            $tarifs = rupiah($d_harga['min1-10'] + ($berat - $d_harga['kons1-10']) * $d_harga['kg1-10'] + 10000);
+            if ($kubik == 0) {
+              $tarif_kubik = rupiah(0);
+            } else {
+              $tarif_kubik =  rupiah($kubik * $d_harga['kubikasi'] + 10000);
+            }
+          } elseif ($berat > 10 && $berat < 21) {
+            $tarifs =  rupiah($d_harga['min11-20'] + ($berat - $d_harga['kons11-20']) * $d_harga['kg11-20'] + 10000);
+            if ($kubik == 0) {
+              $tarif_kubik = rupiah(0);
+            } else {
+              $tarif_kubik =  rupiah($kubik * $d_harga['kubikasi'] + 10000);
+            }
+          } elseif ($berat > 20 && $berat < 101) {
+            $tarifs = rupiah($d_harga['min21-100'] + ($berat - $d_harga['kons21-100']) * $d_harga['kg21-100'] + 10000);
+            if ($kubik == 0) {
+              $tarif_kubik = rupiah(0);
+            } else {
+              $tarif_kubik =  rupiah($kubik * $d_harga['kubikasi'] + 10000);
+            }
+          } elseif ($berat > 100) {
+            $tarifs = rupiah($d_harga['min101'] + ($berat - $d_harga['kons101']) * $d_harga['kg101'] + 10000);
+            if ($kubik == 0) {
+              $tarif_kubik = rupiah(0);
+            } else {
+              $tarif_kubik =  rupiah($kubik * $d_harga['kubikasi'] + 10000);
+            }
+          } elseif ($berat == 0) {
+            $tarifs =  rupiah(0);
+            if ($kubik == 0) {
+              $tarif_kubik = rupiah(0);
+            } else {
+              $tarif_kubik =  rupiah($kubik * $d_harga['kubikasi'] + 10000);
+            }
+          }
+          echo ('<table class="table table-bordered">
+            <thead class="thead-dark">
+              <tr>
+                <th>Dari</th>
+                <th>Tujuan</th>
+                <th>Estimasi</th>
+                <th>Harga Kilogram</th>
+                <th>Harga Kubikasi</th>
+              </tr>
+            </thead>
+            <tbody class="font-weight-bold">
+              <tr>
+               <td>' . $from . '</td>
+               <td>' . $to . '</td>
+               <td>' . $d_harga['estimasi'] . '</td>
+               <td>' . $berat . ' Kg = ' . $tarifs . '</td>
+               <td>' . $kubik . ' m³ = ' . $tarif_kubik . '</td>
+              </tr>
+            </tbody>
+          </table>');
+          break;
+      }
+    }
+  }
+  if ($dari == 'MTB') {
+    if ($to == 'SOLO') {
+      $dari = 'MTB';
+      $tujuan = 'SOLO';
+    } else if ($to == 'SEMARANG') {
+      $dari = 'MTB';
+      $tujuan = 'SMG';
+    } else if ($to == 'KUDUS') {
+      $dari = 'MTB';
+      $tujuan = 'KDS';
+    } else {
+      $dari = 'TNB';
+      $tujuan = $_GET['tujuan'];
+    }
+    if ($d_harga['dari'] == $dari && $d_harga['tujuan'] == $tujuan) {
+      switch ($d_harga['estimasi']) {
+        case '-':
+          echo '<h5 style="text-align:center" >Pengiriman dari <span class="font-weight-bold ">"' . $from . '"</span> ke <span class="font-weight-bold">"' . $to . '"</span> <br/> belum tersedia..</h5>';
+          break;
+        default:
+          if ($berat > 0 && $berat < 11) {
+            $tarifs = rupiah($d_harga['min1-10'] + ($berat - $d_harga['kons1-10']) * $d_harga['kg1-10']);
+            $tarif_kubik =  rupiah($kubik * $d_harga['kubikasi']);
+          } elseif ($berat > 10 && $berat < 21) {
+            $tarifs = rupiah($d_harga['min11-20'] + ($berat - $d_harga['kons11-20']) * $d_harga['kg11-20']);
+            $tarif_kubik =  rupiah($kubik * $d_harga['kubikasi']);
+          } elseif ($berat > 20 && $berat < 101) {
+            $tarifs = rupiah($d_harga['min21-100'] + ($berat - $d_harga['kons21-100']) * $d_harga['kg21-100']);
+            $tarif_kubik = rupiah($kubik  * $d_harga['kubikasi']);
+          } elseif ($berat > 100) {
+            $tarifs = rupiah($d_harga['min101'] + ($berat - $d_harga['kons101']) * $d_harga['kg101']);
+            $tarif_kubik = rupiah($kubik * $d_harga['kubikasi']);
+          } elseif ($berat == 0) {
+            $tarif = rupiah(0);
+            $tarif_kubik = rupiah($kubik * $d_harga['kubikasi']);
+          }
+          echo ('<table class="table table-bordered">
+            <thead class="thead-dark">
+              <tr>
+                <th>Dari</th>
+                <th>Tujuan</th>
+                <th>Estimasi</th>
+                <th>Harga Kilogram</th>
+                <th>Harga Kubikasi</th>
+              </tr>
+            </thead>
+            <tbody class="font-weight-bold">
+              <tr>
+               <td>' . $from . '</td>
+               <td>' . $to . '</td>
+               <td>' . $d_harga['estimasi'] . '</td>
+               <td>' . $berat . ' Kg = ' . $tarifs . '</td>
+               <td>' . $kubik . ' m³ = ' . $tarif_kubik . '</td>
+              </tr>
+            </tbody>
+          </table>');
+          break;
+      }
+    }
+  }
 }
 //}
 function rupiah($angka)

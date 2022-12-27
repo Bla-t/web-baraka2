@@ -1,27 +1,4 @@
-<!-- Banner Image  -->
-<?php
-$conn = mysqli_connect('localhost', 'root', '', 'test');
-
-if (!($conn)) {
-  die($conn);
-}
-?>
 <style>
-  /*.banner-image {
-    background-image: url('<?= BASEURL; ?>/img/homevideo.mp4');
-    background-size: cover;
-    filter: blur(8px);
-      -webkit-filter: blur(8px);
-  } */
-  /*.tales {
-    width: 50%;
-  }
-
-  .carousel-inner {
-    width: 100%;
-    max-height: 200px !important;
-  }  
-*/
   span .tex-primary {
     color: #23305A;
   }
@@ -43,15 +20,9 @@ if (!($conn)) {
         <h1 class="display-3"><span class="text-primary">SOLUSI</span> TEPAT</h1>
         <h1 class="lead mb-0">HARGA BERSAHABAT</h1>
         <h1 class="lead mb-0">UNTUK BISNIS HEBAT</h1>
-        <!-- <h1 class="display-3">Video Header</h1>
-        <p class="lead mb-0">Using HTML5 Video and Bootstrap</p> -->
       </div>
     </div>
   </div>
-  <!--<div class="container h-100 d-flex justify-content-left align-items-center">
-    <div class="content text-left" style="margin-left: 12px;">
-    </div>
-  </div>-->
 </header>
 <!-- Main Content Area -->
 <div class="container my-5 d-grid gap-5">
@@ -61,13 +32,8 @@ if (!($conn)) {
     </h3>
   </div>
   <div class="row">
-    <div class="col">
-      <div class="ratio ratio-1x1">
-        <iframe class="embed-responsive-item" src="https://tarif.bst-ekspres.com/extern.php"></iframe>
-      </div>
-    </div>
-    <div class="col">
-      <div class="utama">
+    <div class="col-md-6 mt-3">
+      <div class="utama mt-2">
         <div align="center">
           <table style=" text-align: center">
             <!--//////////////////////////REMAKE/////////////////////////////-->
@@ -93,20 +59,17 @@ if (!($conn)) {
                   </div>
 
                   <div class="col-12" id="show" align="center">
-
                   </div>
                 </div>
-
-
-                <!--////////////////////////////////////////////////////-->
-
-
-
-                <!-- <a  name="submit" type="submit"><button style="background-color:#006699;" title="SEARCH" href="" Onclick=" document.cari.submit(); return false;">SEARCH</button></a> -->
               </td>
             </tr>
           </table>
         </div>
+      </div>
+    </div>
+    <div class="col-md-6 mt-3">
+      <div class="ratio ratio-1x1">
+        <iframe class="embed-responsive-item" src="https://tarif.bst-ekspres.com/extern.php"></iframe>
       </div>
     </div>
   </div>
@@ -255,8 +218,6 @@ if (!($conn)) {
   });
 
   $(document).on("click", "#cek_resi", function(e) {
-    /* e.preventDefault();*/
-
     var resi = $("#search").val();
 
     if (resi !== '') {
@@ -325,28 +286,13 @@ if (!($conn)) {
   }
 
   function GET(ddl) {
-    /*var para = document.getElementById('tarif-from').value;
-    // var x1 = document.getElementsByClassName('smb');
-    // var sut = document.getElementsByClassName('sumut');
-
-    if (para == "PKB" || para == "MED") {
-
-      $('.smb').css('display', 'none').prop('disabled', true);
-      $('.sumut').css('display', 'block').prop('disabled', false);
-    } else if (para == "PDG") {
-      $('.sumut').css('display', 'none').prop('disabled', true);
-      $('.smb').css('display', 'block').prop('disabled', false);
-
-    }*/
-    //else {
-
-    //   }
-
-
     document.getElementById('tex1').value = ddl.options[ddl.selectedIndex].text;
   }
 
   function GOT(ddl) {
     document.getElementById('tex2').value = ddl.options[ddl.selectedIndex].text;
   }
+  //   var timer = setTimeout(function() {
+  //   window.location = 'http://google.com'
+  // }, 3000);
 </script>

@@ -45,20 +45,21 @@ $mapvalue = mysqli_fetch_all($val_map);
               <input type="text" class="form-control form-control-md" placeholder="Cari cabang..." aria-label="Cari cabang" name="cabs" aria-describedby="button-addon2" required>
               <button class="btn bg-primary text-white" type="submit" id="button-addon2">Cari Cabang</button>
             </div>
-            <?php
-            if (isset($_GET['cabs'])) {
-              $param = $_GET['cabs'];
-              $result = mysqli_query($conn, "SELECT * FROM `isi_cabang` WHERE `nama_cabang` LIKE '$param%' ") or die(mysqli_error($conn));
-              if ($param == ' ') {
-                echo '<br><h4 class="d-flex display-6 justify-content-center align-items-center fw-semibold text-warning"> INPUT KOSONG</h4>';
-              } else if (strlen($param) < 4) {
-                echo '<br><h4 class="d-flex display-6 justify-content-center align-items-center fw-semibold text-warning"> INPUT KURANG</h4>';
-              } else if (mysqli_num_rows($result) == 0) {
-                echo '<br><h4 class="d-flex display-6 justify-content-center align-items-center fw-semibold text-warning"> ALAMAT/CABANG YANG DI CARI TIDAK ADA</h4>';
-              } else if (mysqli_num_rows($result) >  0) {
-            ?>
-                <br>
-                <table class="table table-sm table-hover">
+          </form>
+          <?php
+          if (isset($_GET['cabs'])) {
+            $param = $_GET['cabs'];
+            $result = mysqli_query($conn, "SELECT * FROM `isi_cabang` WHERE `nama_cabang` LIKE '$param%' ") or die(mysqli_error($conn));
+            if ($param == ' ') {
+              echo '<br><h4 class="d-flex display-6 justify-content-center align-items-center fw-semibold text-warning"> INPUT KOSONG</h4>';
+            } else if (strlen($param) < 4) {
+              echo '<br><h4 class="d-flex display-6 justify-content-center align-items-center fw-semibold text-warning"> INPUT KURANG</h4>';
+            } else if (mysqli_num_rows($result) == 0) {
+              echo '<br><h4 class="d-flex display-6 justify-content-center align-items-center fw-semibold text-warning"> ALAMAT/CABANG YANG DI CARI TIDAK ADA</h4>';
+            } else if (mysqli_num_rows($result) >  0) {
+          ?>
+              <div class="table-responsive">
+                <table class="table">
                   <thead>
                     <tr>
                       <th>No</th>
@@ -101,32 +102,31 @@ $mapvalue = mysqli_fetch_all($val_map);
                             echo '<i class="fas fa-earth-asia" style="color:#878787 ;" disabled></i>';
                           } else {
                             echo '<a href="' . $hasil['map'] . '" target="blank" style="color:#01BF57 ;">
-                              <i class="fas fa-earth-asia" disabled></i>
-                              </a>';
+                                <i class="fas fa-earth-asia" disabled></i>
+                                </a>';
                           }
                           ?>
                         </td>
                         <td><a href="setcab.php?edit&id=<?= $hasil['id']; ?>" class="btn btn-sm btn-warning">Edit</a></td>
-                        <td> <a href="confg/crud.php?hps=hps_cbg&id=<?= $hasil['id']; ?>&cab=<?= $hasil['nama_cabang']; ?>" id="hapus" class="btn btn-sm btn-danger">hapus</a></td>
+                        <td> <a href="confg/crud.php?hps=hps_cbg&id=<?= $hasil['id']; ?>&cab=<?= $hasil['nama_cabang']; ?>" id="hapus" class="btn btn-sm btn-danger del">hapus</a></td>
                       </tr>
                     <?php
                     }
                     ?>
                   </tbody>
                 </table>
+              </div>
             <?php
-              }
             }
-            ?>
-          </form>
-          <?php
+          }
+
           if (isset($_GET['edit'])) {
             $id = $_GET['id'];
             $isiedit = mysqli_query($conn, "SELECT * FROM `isi_cabang` WHERE `id` = $id");
             while ($dt = mysqli_fetch_assoc($isiedit)) {
-          ?>
+            ?>
               <p class="fs-5 mt-3">- Edit Data <?= $dt['nama_cabang']; ?></p>
-              <form action="confg/crud.php?mode=updt_cbg" method="POST">
+              <form action="confg/crud.php?mode=updt_cbg" method="POST" class="updateform">
                 <input type="hidden" readonly value="<?= $dt['id']; ?>" name="id">
                 <div class="row mt-3">
                   <div class="col">
@@ -215,7 +215,7 @@ $mapvalue = mysqli_fetch_all($val_map);
                 </div>
                 <div class="row g-3 align align-items-center">
                   <div class="col">
-                    <button type="submit" class="btn btn-primary mt-3">Simpan</button>
+                    <button type="submit" class="btn btn-primary mt-3 update">Simpan</button>
                     <a href="setcab.php" class="btn btn-warning mt-3">Batal</a>
                   </div>
                 </div>
@@ -226,14 +226,14 @@ $mapvalue = mysqli_fetch_all($val_map);
           ?>
         </div>
       </div>
-    </div><br>
+    </div>
     <div class="heading">
       <h3 class="display-5 mt-3">- Tambah Data Cabang Baru</h3>
     </div>
     <div class="row mt-3">
       <div class="card">
         <div class="card-body">
-          <form action="confg/crud.php?tambah=tmbh_cbg" method="POST">
+          <form action="confg/crud.php?tambah=tmbh_cbg" method="POST" class="addedform">
             <div class="col">
               <div class="mb-3">
                 <label for="namacabang" class="form-label">Nama Cabang</label>
@@ -283,7 +283,7 @@ $mapvalue = mysqli_fetch_all($val_map);
                 <label class="form-check-label" for="kirim">pengiriman</label>
               </div>
             </div>
-            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+            <button type="submit" id="tambah" class="btn btn-primary mt-3">Simpan</button>
           </form>
         </div>
       </div>
@@ -298,13 +298,13 @@ $mapvalue = mysqli_fetch_all($val_map);
           }
           // alert($(this).val());
         });
-        $("#hapus").on('click', function() {
+        /*$("#hapus").on('click', function() {
           if (confirm("yakin.?")) {
             return true;
           } else {
             return false;
           }
-        });
+        });*/
       });
     </script>
   </div>

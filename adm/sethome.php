@@ -67,7 +67,7 @@ $datagambar = mysqli_query($conn, "SELECT * FROM `slider` ORDER BY `id`");
                   <td><?= $data['gambr']; ?></td>
                   <td><img src="<?= $file; ?>" alt="<?= $data['gambr']; ?>" width="100"></td>
                   <td><?= $filesize; ?> KB</td>
-                  <td><a href="confg/crud.php?hps=unlink&<?= 'id=' . $data['id'] . '&filename=' . $data['gambr'] ?>" class="btn btn-sm btn-danger">hapus</a></td>
+                  <td><a href="confg/crud.php?hps=unlink&<?= 'id=' . $data['id'] . '&filename=' . $data['gambr'] ?>" class="btn btn-sm btn-danger del">hapus</a></td>
                 </tr>
               <?php
               } ?>

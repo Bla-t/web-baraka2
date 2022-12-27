@@ -12,7 +12,7 @@ class karir_model
 
   public function getkarir()
   {
-    $this->db->query("SELECT * FROM $this->tbl WHERE `stat` = 'y'");
+    $this->db->query("SELECT * FROM $this->tbl");
     return $this->db->semua();
   }
   public function getjumlahkarir()
@@ -25,14 +25,19 @@ class karir_model
   {
     if (!empty($_POST['byklass'])) {
       $tipe = $_POST['byklass'];
-      $query = ("SELECT * FROM $this->tbl2 WHERE `kelas` LIKE :keyword");
+      $query = ("SELECT * FROM $this->tbl2 WHERE `kelas` LIKE :keyword AND `stat` = 'y'");
       $this->db->query($query);
       $this->db->bind('keyword', "%$tipe%");
       return $this->db->semua();
     } else {
-      $this->db->query("SELECT * FROM $this->tbl2 ");
+      $this->db->query("SELECT * FROM $this->tbl2 WHERE `stat` = 'y'");
       return $this->db->semua();
     }
     // return $this->lat;
+  }
+  public function getjob($id)
+  {
+    $this->db->query("SELECT * FROM $this->tbl2 WHERE `id` = '$id'");
+    return $this->db->satuan();
   }
 }

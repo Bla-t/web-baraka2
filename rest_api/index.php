@@ -180,7 +180,7 @@ $date = date('M, Y');
           <div class="col-md-12">
             <div class="input-group mb-3">
               <div class="col">
-                <input type="number" step="any" name="vol" placeholder="volume" class="form-control form-control-sm">
+                <input type="number" step="any" name="vol" placeholder="volume" class="form-control form-control-sm" value="0">
                 <input hidden id="tex1" name="da" value="">
                 <input hidden id="tex2" name="tuj" value="">
               </div>
